@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Mai 2021 um 12:28
+-- Erstellungszeit: 22. Mai 2021 um 14:39
 -- Server-Version: 10.4.18-MariaDB
 -- PHP-Version: 8.0.5
 
@@ -20,6 +20,61 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `grishaverse_glossary`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `begriffe`
+--
+
+CREATE TABLE `begriffe` (
+  `ID` int(10) NOT NULL,
+  `begriff` text NOT NULL,
+  `beschreibung` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `begriffe`
+--
+
+INSERT INTO `begriffe` (`ID`, `begriff`, `beschreibung`) VALUES
+(1, 'Banya', 'thermenähnliches Gemeinschaftsbad mit heißen und kalten Becken'),
+(2, 'Barrel ', 'Vergnügungsviertel in Ketterdam'),
+(3, 'Demjin', 'Fjerdan für \'Dämon\''),
+(4, 'Drüskelle', 'Hexenjäger aus Fjerda'),
+(5, 'Drüsje', 'Fjerdan für \'Hexe\''),
+(6, 'Erste Armee', 'nichtmagische Armee des Zaren von Ravka'),
+(7, 'Feuervogel', 'eines der drei magischen Geschöpfe, die mit Ilya Morozova in Verbindung gebracht werden'),
+(8, 'Jurda', 'Aufputschmittel der Zemeni'),
+(9, 'Jurda Parem', 'Droge aus chemisch verändertem Jurda, die die Fähigkeiten der Grisha verstärkt, macht nach einer Dosis stark abhängig, endet meist tödlich'),
+(10, 'Kefta', 'Robe der Grisha, kann Gewehrfeuer standhalten, die Farbe variiert ja nach Ordenszugehörigkeit'),
+(11, 'Kokochnik', 'traditioneller Kopfschmuck verheirateter Frauen aus Ravka'),
+(12, 'Kvas', 'beliebtes Getränk in Ravka'),
+(13, 'Lumiya', 'flüssiges Feuer, eine Erfindung Morozovas'),
+(14, 'Merzost', 'schwarze Magie'),
+(15, 'Nichevo\'ya', '\'Nicht-Wesen\', vom Dunklen erschaffene magische Schattenwesen, auch Schattenkrieger genannt'),
+(16, 'Ödsee', 'andere Bezeichnung für die Schattenflur, eine Sandwüste, die in tiefer Finsternis liegt und die von den Volkra bewohnt wird'),
+(17, 'Opritschki', 'Elitesoldaten in der Leibgarde des Dunklen'),
+(18, 'Otkazat\'sya', 'Ravkan für \'Verlassener\', Bezeichnung für die einfachen Menschen ohne Grishafähigkeiten, außerdem Bezeichnung für ein Waisenkind'),
+(19, 'Razrusha\'ya', 'Ravkan für \'die Verheerte\', so wird Genya von abergläubigen Menschen genannt'),
+(20, 'Rusalye', 'die Meeresgeißel, ein mythischer Eisdrache, der in der Knochenrinne lebt'),
+(21, 'Samowar', 'Wasserkocher, aus dem Tee serviert wird'),
+(22, 'Sandskiff', 'flacher Schlitten mit großen Segeln, der Reisende lautlos über die Schattenflur befördert'),
+(23, 'Sobachka', 'Ravkan für \'Welpe\', Nikolai Lantsovs Spitzname, da er der jüngere Sohn ist'),
+(24, 'Soldat Sol', 'Armee des Asketen, die aus Anhängern der Sonnenkriegerin besteht, ihr Erkennungszeichen ist die Tätowierung der Strahlensonne'),
+(25, 'Sol Koroleva', 'Ravkan für \'Sonnenkönigin\', ehrfürchtige Bezeichnung der Sonnenkriegerin'),
+(26, 'Tsarevich ', 'ältester Sohn des Zaren und Thronfolger'),
+(27, 'Volkra', 'blindes, geflügeltes Wesen, das Reisende in der Schattenflur heimsucht'),
+(28, 'Wahre See', 'Meer'),
+(29, 'Weiße Rose', 'Menagerie im Barrel von Ketterdam'),
+(30, 'Haus der Exoten', 'Menagerie im Barrel von Ketterdam'),
+(31, 'Krämer', 'Bezeichnung eines Kaufmanns in Kerch'),
+(32, 'Dregs', 'Gang in Ketterdam, der auch die Krähen angehören'),
+(33, 'Dime-Lions', 'Gang in Ketterdam'),
+(34, 'Black Tips', 'Gang in Ketterdam'),
+(35, 'Gezeitenrat', 'Zusammenschluss von Flutern, die Ebbe und Flut im Hafen von Ketterdam kontrollieren'),
+(36, 'Zweite Armee', 'magische Grisha-Armee des Zaren von Ravka, angeführt vom Dunklen, später von der Triarchie'),
+(37, 'Krähen', 'die Gruppe bestehend aus Kaz Brekker, Inej Ghafa, Jesper Fahey, Nina Zenik, Matthias Helvar und Wylan Van Eck; der Name ist abgeleitet vom Krähentattoo der Dregs');
 
 -- --------------------------------------------------------
 
@@ -147,7 +202,7 @@ CREATE TABLE `personen` (
 INSERT INTO `personen` (`ID`, `vorname`, `nachname`, `weitere_namen`, `geschlecht`, `nation`, `gruppe`, `grisha_typ`, `sonstiges`) VALUES
 (1, 'Adrik', 'Zhabin', NULL, 'm', 3, 5, 3, 'Grisha in der Ausbildung, Nadias jüngerer Bruder'),
 (2, 'Alexander', 'Lantsov', 'Alexander III. ', 'm', 3, 0, 0, 'Zar von Ravka'),
-(3, 'Alina', 'Starkov', 'Sankta Alina, Sonnenkriegerin', 'w', 3, 5, 9, 'Kartografin in der Ersten Armee von Ravka, einzigartige Grisha mit verborgenen Fähigkeiten'),
+(3, 'Alina', 'Starkov', 'Sankta Alina, Sol Koroleva (Sonnenkönigin)', 'w', 3, 5, 9, 'Kartografin in der Ersten Armee von Ravka, einzigartige Grisha mit verborgenen Fähigkeiten'),
 (4, 'Alys', 'Van Eck', NULL, 'w', 1, 0, 0, 'Jan Van Ecks zweite Frau'),
 (5, 'Ana', 'Kuya', NULL, 'w', 3, 0, 0, 'Haushälterin im Waisenhaus von Keramzin'),
 (6, 'Anika', NULL, NULL, 'w', 1, 3, 0, NULL),
@@ -158,7 +213,7 @@ INSERT INTO `personen` (`ID`, `vorname`, `nachname`, `weitere_namen`, `geschlech
 (11, 'Botkin', 'Yul-Erdene', NULL, 'm', 5, 0, 0, 'ehemaliger Shu-Han-Söldner, Kampftrainer der Grisha'),
 (12, 'Bo', 'Yul-Bayur', NULL, 'm', 5, 5, 7, 'Erfinder des Jurda-Parems, Kuwei Yul-Bos Vater'),
 (13, 'Colm', 'Fahey', NULL, 'm', 6, 0, 0, 'Jesper Faheys Vater'),
-(14, 'Cornelis', 'Smeet', NULL, 'm', 1, 0, 0, 'Jan Van Ecks Anwalt und Verwalter seines Eigentums'),
+(14, 'Cornelis', 'Smeet', NULL, 'm', 1, 8, 0, 'Jan Van Ecks Anwalt und Verwalter seines Eigentums'),
 (15, 'Danil', 'Markov', NULL, 'm', 3, 5, 5, 'Identur in Ketterdam'),
 (16, 'David', 'Kostyk', NULL, 'm', 3, 5, 6, 'Genyas Freund, später Mitglied der Triarchie von Ravka (Vertreter der Fabrikatoren)'),
 (17, NULL, NULL, 'Der Dunkle, Der Dunkle Ketzer', 'm', 3, 5, 8, 'mächtiger Grisha mit einzigartigen Fähigkeiten, Anführer der Grisha, Baghras Sohn'),
@@ -171,7 +226,7 @@ INSERT INTO `personen` (`ID`, `vorname`, `nachname`, `weitere_namen`, `geschlech
 (24, 'Fedyor', 'Kaminski', NULL, 'm', 3, 5, 1, NULL),
 (25, 'Filip', NULL, NULL, 'm', 1, 2, 0, NULL),
 (26, NULL, 'Geels', NULL, 'm', 1, 1, 0, 'Leutnant der Black Tips'),
-(27, 'Genya', 'Safin', NULL, 'w', 3, 5, 10, 'mächtige Grisha mit einzigartigen Fähigkeiten, zuerst im Dienst der Zarin, dann des Dunklen, schließlich Mitglied der Triarchie von Ravka (Vertreterin der Korporalki)'),
+(27, 'Genya', 'Safin', 'Razrusha\'ya (die Verheerte)', 'w', 3, 5, 10, 'mächtige Grisha mit einzigartigen Fähigkeiten, zuerst im Dienst der Zarin, dann des Dunklen, schließlich Mitglied der Triarchie von Ravka (Vertreterin der Korporalki)'),
 (28, NULL, 'Gerrigan', NULL, 'm', 1, 2, 0, NULL),
 (29, NULL, 'Gorka', NULL, 'm', 1, 3, 0, NULL),
 (30, 'Harshaw', NULL, NULL, 'm', 6, 5, 5, NULL),
@@ -179,20 +234,20 @@ INSERT INTO `personen` (`ID`, `vorname`, `nachname`, `weitere_namen`, `geschlech
 (32, NULL, 'Hoede', NULL, 'm', 1, 0, 0, NULL),
 (33, 'Ilya', 'Morozova', 'Sankt Ilya', 'm', 3, 5, 6, 'mächtiger Grisha, Erschaffer der Kräftemehrer, Vater von Baghra'),
 (34, 'Inej', 'Ghafa', 'Phantom', 'w', 4, 6, 0, 'Akrobatin, Spionin und Messerkämpferin, ehemals Identur in der Menagerie'),
-(35, 'Jan', 'Van Eck', NULL, 'm', 1, 0, 0, 'Auftraggeber und Widersacher der Krähen, Wylan Van Ecks Vater'),
+(35, 'Jan', 'Van Eck', NULL, 'm', 1, 8, 0, 'Auftraggeber und Widersacher der Krähen, Wylan Van Ecks Vater'),
 (36, 'Jarl', 'Brum', NULL, 'm', 7, 4, 0, 'Kommandant der Drüskelle'),
 (37, 'Jesper', 'Fahey', NULL, 'm', 2, 6, 6, 'Scharfschütze, Wylan Van Ecks Freund'),
 (38, 'Kaz', 'Brekker', 'Dirtyhands, Bastard of the Barrel, Demjin (Dämon) ', 'm', 1, 6, 0, 'Meisterdieb und Schlösserknacker, Leutnant der Dregs, Anführer der Krähen, Haphephobiker'),
 (39, NULL, 'Keeg', NULL, 'm', 1, 3, 0, NULL),
 (40, 'Kuwei', 'Yul-Bo', NULL, 'm', 5, 5, 5, 'Shu-Abtrünniger und Gejagter, Sohn von Bo Yul-Bayur'),
-(41, 'Malyen', 'Oretsev', NULL, 'm', 3, 0, 0, 'Fährtenleser in der Ersten Armee von Ravka, Alinas Freund'),
+(41, 'Malyen', 'Oretsev', 'Otkazat\'sya (Verlassener)', 'm', 3, 0, 0, 'Fährtenleser in der Ersten Armee von Ravka, Alinas Freund'),
 (42, 'Marie', NULL, NULL, 'w', 3, 5, 5, ''),
 (43, 'Marya', 'Hendriks', NULL, 'w', 1, 0, 0, 'Wylan Van Ecks Mutter, Jan Van Ecks erste Frau'),
 (44, 'Matthias', 'Helvar', NULL, 'm', 7, 6, 0, 'in Ungnade gefallener Drüskelle, Nina Zeniks Freund'),
 (45, 'Misha', NULL, NULL, 'm', 3, 0, 0, 'Baghras Diener, Waise'),
 (46, NULL, 'Muzzen', NULL, 'm', 1, 3, 0, NULL),
 (47, 'Nadia', 'Zhabin', NULL, 'w', 3, 5, 3, 'Adriks Schwester, Tamars Freundin'),
-(48, 'Nikolai', 'Lantsov', 'Sturmhond, Fuchs', 'm', 3, 0, 0, 'zweiter Sohn Alexanders III., Freibeuter, später Zar von Ravka'),
+(48, 'Nikolai', 'Lantsov', 'Sturmhond, Sobachka (Welpe), Fuchs', 'm', 3, 0, 0, 'zweiter Sohn Alexanders III., Freibeuter, später Zar von Ravka'),
 (49, 'Nina', 'Zenik', 'Corpsewitch, Drüsje (Hexe)', 'w', 3, 6, 1, 'mächtige Grisha, Überlebende des Jurda-Parems, ehemals Identur in der Weißen Rose, Matthias Helvars Freundin'),
 (50, 'Paja', NULL, NULL, 'w', 4, 5, 7, NULL),
 (51, 'Pekka', 'Rollins', NULL, 'm', 1, 2, 0, 'General der Dime-Lions, Kaz Brekkers Erzfeind'),
@@ -211,7 +266,7 @@ INSERT INTO `personen` (`ID`, `vorname`, `nachname`, `weitere_namen`, `geschlech
 (64, 'Tamar', 'Kir-Baatar', NULL, 'w', 5, 5, 1, 'Zwillingsschwester von Tolya, Freundin von Nadia, später Hauptfrau von Zar Nikolais persönlicher Wache'),
 (65, 'Tolya', 'Yul-Baatar', NULL, 'm', 5, 5, 1, 'Zwillingsbruder von Tamar'),
 (66, 'Varian', NULL, NULL, 'm', 1, 3, 0, NULL),
-(67, 'Vasily', 'Lantsov', NULL, 'm', 3, 0, 0, 'erster Sohn Alexander III., Thronfolger'),
+(67, 'Vasily', 'Lantsov', 'Tsarevich', 'm', 3, 0, 0, 'erster Sohn Alexander III., Thronfolger'),
 (68, 'Vladim', NULL, NULL, 'm', 3, 7, 0, NULL),
 (69, 'Wylan', 'Van Eck', NULL, 'm', 1, 6, 0, 'Demo-Experte, Flötist, Legastheniker, Jan Van Ecks verstoßener Sohn, Jesper Faheys Freund'),
 (70, 'Zoya', 'Nazyalenski', 'Sturmhexe', 'w', 3, 5, 3, 'mächtige Grisha, später Mitglied der Triarchie von Ravka (Vertreterin der Ätheralki) ');
@@ -264,6 +319,12 @@ INSERT INTO `schauplaetze` (`ID`, `schauplatz`, `nation`, `beschreibung`) VALUES
 --
 
 --
+-- Indizes für die Tabelle `begriffe`
+--
+ALTER TABLE `begriffe`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indizes für die Tabelle `grisha`
 --
 ALTER TABLE `grisha`
@@ -304,6 +365,12 @@ ALTER TABLE `schauplaetze`
 --
 -- AUTO_INCREMENT für exportierte Tabellen
 --
+
+--
+-- AUTO_INCREMENT für Tabelle `begriffe`
+--
+ALTER TABLE `begriffe`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT für Tabelle `grisha`
