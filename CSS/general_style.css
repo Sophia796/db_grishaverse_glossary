@@ -1,11 +1,12 @@
 
-/* alle Inhalte der Seite */
+/* alle Inhalte der Seite 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Garamond', 'Georgia', serif;
 }
+*/
 
 /* Hintergrund der Startseite */
 body{
@@ -13,7 +14,7 @@ body{
 }
 
 /* Navigation */
-nav{
+/* nav{
     background: #e0e0eb;
     display: flex;
     flex-wrap: wrap;
@@ -22,30 +23,33 @@ nav{
     height: 70px;
     padding: 0 100px;
 }
+*/
 
 /* Einträge der Navigationsleiste */
-nav .nav-bar{
-    display: flex;
-    flex: 1;
-}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
 
-nav .nav-bar tr{
-    width: 100%;
-}
+nav ul li{
+    float: left;
+  }
 
-nav .nav-bar td{
-    width: 20%;
+nav ul li a{
+    display: block;
+    color: white;
     text-align: center;
-    padding: 15px;
-}
-
-nav .nav-bar td a{
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
+    padding: 14px 16px;
     text-decoration: none;
-}
+  }
+  
+nav ul li a:hover{
+    background-color: #111;
+  }
 
-nav .nav-bar td a:hover{
-    color: #ff3d00;
-}
+nav ul li .active {
+    background-color: #04AA6D;
+  }
