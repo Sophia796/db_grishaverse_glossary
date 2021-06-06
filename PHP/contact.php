@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Grishaverse-Datenbank: Das Grishaverse</title>
+    <title>Grishaverse-Datenbank: Kontakt</title>
     <link rel='stylesheet' href='../CSS/style.css'>
     <link rel='stylesheet' href='../CSS/header_footer.css'>
     <link rel='stylesheet' href='../CSS/navbar.css'>
@@ -19,7 +19,7 @@
          <ul>
             <li><a href='index.php'>Startseite</a></li>
             <li class='dropdown'>
-                <a href='about.php' class='active'>Das Grishaverse</a>
+                <a href='about.php'>Das Grishaverse</a>
                 <div class='dropdown-content'>
                     <a>Die Legenden der Grisha</a>
                     <a>Die Krähen-Dilogie</a>
@@ -46,8 +46,8 @@
     <br>
 
     <div>
-        <h2>Das Grishaverse</h2>
-        <p>text text text</p>
+        <h2>Kontakt</h2>
+        <p>Kontaktformular</p>
     </div>
 
     <div class='footer'>

@@ -31,7 +31,7 @@
                 </div>
             </li>
             <li class='dropdown'>
-                <a>Glossar</a>
+                <a href= 'glossary.php'>Glossar</a>
                 <div class='dropdown-content'>
                     <a>Personen</a>
                     <a>Grisha</a>
@@ -40,7 +40,7 @@
                     <a>Freie Suche</a>
                 </div>
             </li>
-            <li><a>Karte</a></li>
+            <li><a href='map.php'>Karte</a></li>
             <li style='float:right'><a>Login</a></li>
         </ul>
     </nav>
@@ -89,17 +89,13 @@
     <div class='footer'>
         <ul>
             <li style='float:left'><a>© S. Ackermann 2021</a></li>
-            <li><a>Impressum</a></li>
-            <li><a>Kontakt</a></li>
-            <li><a>Quellen</a></li>
+            <li><a href='impressum.php'>Impressum</a></li>
+            <li><a href='contact.php'>Kontakt</a></li>
+            <li><a href='sources.php'>Quellen</a></li>
         </ul>
     </div>
 
     <script src='../Javascript/slideshow.js'></script>
-
-    <?php
-    $configs = include('config.php');
-    ?>
     
 </body>
 

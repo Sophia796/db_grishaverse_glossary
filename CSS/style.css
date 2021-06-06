@@ -6,14 +6,44 @@ body{
   color: #404040;
 }
 
+
 /* Überschriften */
 h1{
   font-family: 'Garamond', 'Georgia', serif;
-  font-size: 3em;                                     /* em statt Pixel für Responsive Design */ 
+  font-size: 3em;                                      /* em statt Pixel für Responsive Design */ 
   color: black;
 }
 
 h2{
   font-family: 'Garamond', 'Georgia', serif;
   font-size: 2em;                                      
+}
+
+h3{
+  font-family: 'Garamond', 'Georgia', serif;
+  font-size: 1.5em;  
+}
+
+h4{
+  font-family: 'Garamond', 'Georgia', serif;
+  font-size: 1.3em;  
+}
+
+
+/* Links */
+a.link:link{
+  text-decoration: none;
+  color: #404040;
+}
+
+a.link:visited{
+  color: #404040;
+}
+
+a.link:hover{
+  color: black;
+}
+
+a.link:active{
+  color: #800000;
 }
