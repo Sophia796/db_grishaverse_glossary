@@ -47,8 +47,8 @@
 
     <br>
 
-    <h2>Willkommen im Grisahverse</h2>
     <div>
+        <h2>Willkommen im Grisahverse</h2>
         <p>
         ...dem Universum, in dem Leigh Bardugos beliebte Fantasy-Buchreihen spielen. <br>
         Hier finden Sie Informationen zu den einzelnen Büchern, ein Glossar der wichtigsten Begriffe, 
@@ -90,6 +90,7 @@
         <ul>
             <li style='float:left'><a>© S. Ackermann 2021</a></li>
             <li><a>Impressum</a></li>
+            <li><a>Kontakt</a></li>
             <li><a>Quellen</a></li>
         </ul>
     </div>

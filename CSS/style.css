@@ -6,6 +6,12 @@ body{
   color: #404040;
 }
 
+div{
+  width: 16em;
+  padding: 3em;
+  margin: 1.2em;
+}
+
 
 /* Überschriften */
 h1{
