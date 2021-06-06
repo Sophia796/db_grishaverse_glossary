@@ -4,10 +4,12 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Startseite Grishaverse-Datenbank</title>
+    <title>Grishaverse-Datenbank Startseite</title>
     <link rel='stylesheet' href='../CSS/style.css'>
+    <link rel='stylesheet' href='../CSS/header_footer.css'>
+    <link rel='stylesheet' href='../CSS/navbar.css'>
+    <link rel='stylesheet' href='../CSS/slideshow.css'>
 </head>
-
 
 <body>
     <div class='header'>
@@ -26,7 +28,6 @@
                     <a>Die King of Scars-Dilogie</a>
                     <a>Kurzgeschichten und Specials</a>
                     <a>Serie: Shadow and Bone - Legenden der Grisha</a>
-                    <a>Karte des Grishaverse</a>
                 </div>
             </li>
             <li class='dropdown'>
@@ -39,6 +40,7 @@
                     <a>Freie Suche</a>
                 </div>
             </li>
+            <li><a>Karte</a></li>
             <li style='float:right'><a>Login</a></li>
         </ul>
     </nav>
@@ -64,12 +66,12 @@
         <div class='mySlides fade'>
             <div class='numbertext'>2 / 3</div>
             <img src='../images/testimage.jpg' style='width:100%'>
-            <div class='text'>Karte</div>
+            <div class='text'>Glossar</div>
         </div>
         <div class='mySlides fade'>
             <div class='numbertext'>3 / 3</div>
             <img src='../images/testimage.jpg' style='width:100%'>
-            <div class='text'>Glossar</div>
+            <div class='text'>Karte</div>
         </div>
 
         <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>

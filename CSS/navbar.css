@@ -1,0 +1,63 @@
+/* Navigationsleiste */
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #404040;
+}
+  
+nav ul li{
+    float: left;
+    font-size: 1.2em;
+}
+  
+nav ul li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+}
+    
+nav ul li a:hover{
+    background-color: black;                         /* Mouse Hover: Ändern der Farbe */
+}
+  
+nav ul li .active{
+    background-color: #800000;                       /* Rot zeigt, auf welcher Seite man sich gerade befindet */
+}
+  
+  
+/* Dropdown */
+li.dropdown{
+    display: inline-block;
+}
+  
+li .dropdown:hover{
+    background-color: #f1f1f1;
+}
+  
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 10em;
+    z-index: 1;                                        /* hoher z-index --> weiter im Vordergrund */
+}
+  
+.dropdown-content a{
+    color: #404040;
+    padding: 0.8em;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+  
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
