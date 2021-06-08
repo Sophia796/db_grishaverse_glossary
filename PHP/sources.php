@@ -21,11 +21,11 @@
             <li class='dropdown'>
                 <a href='about.php'>Das Grishaverse</a>
                 <div class='dropdown-content'>
-                    <a>Die Legenden der Grisha</a>
-                    <a>Die Krähen-Dilogie</a>
-                    <a>Die King of Scars-Dilogie</a>
-                    <a>Kurzgeschichten und Specials</a>
-                    <a>Serie: Shadow and Bone - Legenden der Grisha</a>
+                    <a>Legenden der Grisha</a>
+                    <a>Glory or Grave</a>
+                    <a>King of Scars</a>
+                    <a>Begleitbücher</a>
+                    <a>Serie: Shadow and Bone</a>
                 </div>
             </li>
             <li class='dropdown'>
@@ -47,27 +47,48 @@
 
     <div>
         <h2>Quellen</h2>
-        <h4>Die Legenden der Grisha:</h4>
+        <h4>Legenden der Grisha:</h4>
         <ul>
             <li>Leigh Bardugo: Goldene Flammen. Knaur 2019.</li>
             <li>Leigh Bardugo: Eisige Wellen. Knaur 2020.</li>
             <li>Leigh Bardugo: Lodernde Schwingen. Knaur 2020.</li>
         </ul>
-        <h4>Die Krähen-Dilogie:</h4>
+        <h4>Glory or Grave:</h4>
         <ul>
             <li>Leigh Bardugo: Das Lied der Krähen. Knaur 2017.</li>
             <li>Leigh Bardugo: Das Gold der Krähen. Knaur 2018.</li>
         </ul>
-        <h4>Die King-of-Scars-Dilogie:</h4>
+        <h4>King-of-Scars:</h4>
         <ul>
             <li>Leigh Bardugo: King of Scars: Thron aus Gold und Asche. Knaur 2019.</li>
             <li>Leigh Bardugo: Rule of Wolves: Thron aus Nacht und Silber. Knaur 2021.</li>
         </ul>
+        <h4>Begleitbücher:</h4>
+        <ul>
+            <li>Leigh Bardugo: Die Sprache der Dornen. Knaur 2018.</li>
+            <li>Leigh Bardugo: Die Leben der Heiligen. Knaur 2021.</li>
+        </ul>
         <h4>Internetquellen:</h4>
         <ul>
+            <li>Droemer Knaur: Das fantastische GrishaVerse von Leigh Bardugo. Online verfügbar unter <a class='link' href='https://www.droemer-knaur.de/magazin/entdecken/das-grosse-grisha-universum-von-leigh-bardugo'>https://www.droemer-knaur.de/magazin/entdecken/das-grosse-grisha-universum-von-leigh-bardugo</a>.</li>
             <li>Fandom Wiki: The Grishaverse. Online verfügbar unter <a class='link' href='https://thegrishaverse.fandom.com/wiki/Grishaverse_Wiki'>https://thegrishaverse.fandom.com/wiki/Grishaverse_Wiki</a>.</li>
             <li>Grishaverse. Online verfügbar unter <a class='link' href='https://grishaverse.com/'>https://grishaverse.com/</a>.</li>
+            <li>Netflix: Shadow and Bone. Online verfügbar unter <a class='link' href='https://www.netflix.com/de/title/80236319'>https://www.netflix.com/de/title/80236319</a>.</li>
             <li>Wikipedia: Leigh Bardugo. Online verfügbar unter <a class='link' href='https://de.wikipedia.org/wiki/Leigh_Bardugo'>https://de.wikipedia.org/wiki/Leigh_Bardugo</a>.</li>
+        </ul>
+        <h4>Bildquellen:</h4>
+        <ul>
+            <li>Cover 'Goldene Flammen'. Online verfügbar unter <a class='link' href='https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426524442.jpg'>https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426524442.jpg</a>.</li>
+            <li>Cover 'Eisige Wellen'. Online verfügbar unter <a class='link' href='https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426524459.jpg'>https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426524459.jpg</a>.</li>
+            <li>Cover 'Lodernde Schwingen'. Online verfügbar unter <a class='link' href='https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426524466.jpg'>https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426524466.jpg</a>.</li>
+            <li>Cover 'Das Lied der Krähen'. Online verfügbar unter <a class='link' href='https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426654439.jpg'>https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426654439.jpg</a>.</li>
+            <li>Cover 'Das Gold der Krähen'. Online verfügbar unter <a class='link' href='https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426654491.jpg'>https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426654491.jpg</a>.</li>
+            <li>Cover 'King of Scars'. Online verfügbar unter <a class='link' href='https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426227008.jpg'>https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426227008.jpg</a>.</li>
+            <li>Cover 'Rule of Wolves'. Online verfügbar unter <a class='link' href='https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426227015.jpg'>https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_388,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426227015.jpg</a>.</li>
+            <li>Cover 'Die Sprache der Dornen'. Online verfügbar unter <a class='link' href='https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_546,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426226797.jpg'>https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_546,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426226797.jpg</a>.</li>
+            <li>Cover 'Die Leben der Heiligen'. Online verfügbar unter <a class='link' href='https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_320,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426227657.jpg'>https://res.cloudinary.com/holtzbrinck-buchverlage/image/fetch/w_320,c_fill,g_auto,q_auto,f_auto/https://rdw.hgvcdn.de/resources/FILENAME/9783426227657.jpg</a>.</li>
+            <li>Wallpaper 'Sahdow and Bone'. Online verfügbar unter <a class='link' href='https://occ-0-1068-92.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABXQaYX3YIZG4ywXWFvGZLo59Lgb1-oWlqNkaweDIYIUts1xO0CVKKRSgcZibOLfKfZOZd8vPEI9x5vcNqUxJ-dNAc9PN.jpg?r=7d5'>https://occ-0-1068-92.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABXQaYX3YIZG4ywXWFvGZLo59Lgb1-oWlqNkaweDIYIUts1xO0CVKKRSgcZibOLfKfZOZd8vPEI9x5vcNqUxJ-dNAc9PN.jpg?r=7d5</a>.</li>
+            <li>Karte des Grishaverse. Online verfügbar unter <a class='link' href='https://pbs.twimg.com/media/D1EVde7WkAACHVU.jpg'>https://pbs.twimg.com/media/D1EVde7WkAACHVU.jpg</a>.</li>
         </ul>
     </div>
 

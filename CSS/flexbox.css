@@ -1,0 +1,30 @@
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #f1f1f1;
+    width: 100%;
+}
+  
+.flex-container .item3 {
+    background-color: #f1f1f1;
+    width: 33%;
+    margin: 1.5em;
+    text-align: center;
+    line-height: 2em; 
+}
+
+.flex-container .item2 {
+    background-color: #f1f1f1;
+    width: 50%;
+    margin: 1.5em;
+    text-align: center;
+    line-height: 2em; 
+}
+
+.flex-container .item1 {
+    background-color: #f1f1f1;
+    width: 100%;
+    margin: 1.5em;
+    text-align: center;
+    line-height: 2em; 
+}

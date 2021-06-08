@@ -21,11 +21,11 @@
             <li class='dropdown'>
                 <a href='about.php'>Das Grishaverse</a>
                 <div class='dropdown-content'>
-                    <a>Die Legenden der Grisha</a>
-                    <a>Die Krähen-Dilogie</a>
-                    <a>Die King of Scars-Dilogie</a>
-                    <a>Kurzgeschichten und Specials</a>
-                    <a>Serie: Shadow and Bone - Legenden der Grisha</a>
+                    <a>Legenden der Grisha</a>
+                    <a>Glory or Grave</a>
+                    <a>King of Scars</a>
+                    <a>Begleitbücher</a>
+                    <a>Serie: Shadow and Bone</a>
                 </div>
             </li>
             <li class='dropdown'>
@@ -47,8 +47,11 @@
 
     <div>
         <h2>Karte des Grishaverse</h2>
-        <img src='../images/testimage.jpg' style='width:100%'>
+        <img src='../images/images/map.jpg' style='width:100%'>
     </div>
+
+    <br>
+    <br>
 
     <div class='footer'>
         <ul>
