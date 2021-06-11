@@ -4,10 +4,11 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Grishaverse-Datenbank: Karte</title>
+    <title>Grishaverse-Datenbank: Quellen</title>
     <link rel='stylesheet' href='../CSS/style.css'>
     <link rel='stylesheet' href='../CSS/header_footer.css'>
     <link rel='stylesheet' href='../CSS/navbar.css'>
+    <link rel='stylesheet' href='../CSS/flexbox.css'>
 </head>
 
 <body>
@@ -28,7 +29,7 @@
                     <a href='about.php#a5'>Serie: Shadow and Bone</a>
                 </div>
             </li>
-            <li><a href='author.php'>Leigh Bardugo</a></li>
+            <li><a href='author.php' class='active'>Leigh Bardugo</a></li>
             <li class='dropdown'>
                 <a href= 'glossary.php'>Glossar</a>
                 <div class='dropdown-content'>
@@ -39,16 +40,26 @@
                     <a>Freie Suche</a>
                 </div>
             </li>
-            <li><a href='map.php' class='active'>Karte</a></li>
+            <li><a href='map.php'>Karte</a></li>
             <li style='float:right'><a>Login</a></li>
         </ul>
     </nav>
 
     <br>
 
-    <div>
-        <h2>Karte des Grishaverse</h2>
-        <img src='../images/images/map.jpg' style='width:100%'>
+    <div class='flex-container'>
+        <div class='item2'>
+            <h2>Leigh Bardugo</h2>
+            <p>Leigh Bardugo ist eine Bestsellerautorin von Fantasy-Romanen und Schöpferin des Grishaverse.
+            Sie wurde in Jerusalem geboren, wuchs in Südkalifornien auf und machte ihren Abschluss an der 
+            Yale University.
+            Nach Stationen im Journalismus und im Marketing kam sie schließlich als 
+            Special Effects-Designerin zum Film.<br>
+            Leigh lebt und schreibt in Los Angeles.</p>
+        </div>
+        <div class='item2'>
+            <img src='../images/images/leigh_bardugo.jpg' style='width:60%'>
+        </div>
     </div>
 
     <br>

@@ -22,13 +22,14 @@
             <li class='dropdown'>
                 <a href='about.php' class='active'>Das Grishaverse</a>
                 <div class='dropdown-content'>
-                    <a>Legenden der Grisha</a>
-                    <a>Glory or Grave</a>
-                    <a>King of Scars</a>
-                    <a>Begleitbücher</a>
-                    <a>Serie: Shadow and Bone</a>
+                    <a href='about.php#a1'>Legenden der Grisha</a>
+                    <a href='about.php#a2'>Glory or Grave</a>
+                    <a href='about.php#a3'>King of Scars</a>
+                    <a href='about.php#a4'>Begleitbücher</a>
+                    <a href='about.php#a5'>Serie: Shadow and Bone</a>
                 </div>
             </li>
+            <li><a href='author.php'>Leigh Bardugo</a></li>
             <li class='dropdown'>
                 <a href= 'glossary.php'>Glossar</a>
                 <div class='dropdown-content'>
@@ -54,7 +55,7 @@
 
     <br>
 
-    <article>
+    <article id='a1'>
         <h2>Legenden der Grisha - Die Grisha-Trilogie</h2>
         <p>
         In den Büchern der Grisha-Trilogie geht es um Alina, eine einfache Kartografin in der Ersten Armee 
@@ -82,7 +83,7 @@
 
     <br>
 
-    <article>
+    <article id='a2'>
         <h2>Glory or Grave - Die Krähen-Dilogie</h2>
         <p>
         Die Krähen-Dilogie ist nicht in Ravka angesiedelt, sondern in Ketterdam, einer Hafenstadt, 
@@ -106,7 +107,7 @@
 
     <br>
 
-    <article>
+    <article id='a3'>
         <h2>Die King of Scars-Dilogie</h2>
         <p>
         Ein Wiedersehen mit Nikolai Lantsov: Freibeuter, Soldat, Bastard, Herrscher.
@@ -130,7 +131,7 @@
 
     <br>
 
-    <article>
+    <article id='a4'>
         <h2>Begleitbücher</h2>
         <h3>Die Sprache der Dornen</h3>
         <p>
@@ -159,7 +160,7 @@
 
     <br>
 
-    <article>
+    <article id='a5'>
         <h2>Shadow and Bone</h2>
         <p>
         Die beliebte Netflix-Serie <span style='font-style: italic;'>Shadow and Bone</span> hat nicht nur 
@@ -182,6 +183,7 @@
             <li style='float:left'><a>© S. Ackermann 2021</a></li>
             <li><a href='impressum.php'>Impressum</a></li>
             <li><a href='contact.php'>Kontakt</a></li>
+            <li><a href='privacy.php'>Datenschutz</a></li>
             <li><a href='sources.php'>Quellen</a></li>
         </ul>
     </div>

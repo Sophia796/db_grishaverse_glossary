@@ -21,13 +21,14 @@
             <li class='dropdown'>
                 <a href='about.php'>Das Grishaverse</a>
                 <div class='dropdown-content'>
-                    <a>Legenden der Grisha</a>
-                    <a>Glory or Grave</a>
-                    <a>King of Scars</a>
-                    <a>Begleitbücher</a>
-                    <a>Serie: Shadow and Bone</a>
+                    <a href='about.php#a1'>Legenden der Grisha</a>
+                    <a href='about.php#a2'>Glory or Grave</a>
+                    <a href='about.php#a3'>King of Scars</a>
+                    <a href='about.php#a4'>Begleitbücher</a>
+                    <a href='about.php#a5'>Serie: Shadow and Bone</a>
                 </div>
             </li>
+            <li><a href='author.php'>Leigh Bardugo</a></li>
             <li class='dropdown'>
                 <a href= 'glossary.php'>Glossar</a>
                 <div class='dropdown-content'>
@@ -55,6 +56,7 @@
             <li style='float:left'><a>© S. Ackermann 2021</a></li>
             <li><a href='impressum.php'>Impressum</a></li>
             <li><a href='contact.php'>Kontakt</a></li>
+            <li><a href='privacy.php'>Datenschutz</a></li>
             <li><a href='sources.php'>Quellen</a></li>
         </ul>
     </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Grishaverse-Datenbank: Karte</title>
+    <title>Grishaverse-Datenbank: Quellen</title>
     <link rel='stylesheet' href='../CSS/style.css'>
     <link rel='stylesheet' href='../CSS/header_footer.css'>
     <link rel='stylesheet' href='../CSS/navbar.css'>
@@ -39,7 +39,7 @@
                     <a>Freie Suche</a>
                 </div>
             </li>
-            <li><a href='map.php' class='active'>Karte</a></li>
+            <li><a href='map.php'>Karte</a></li>
             <li style='float:right'><a>Login</a></li>
         </ul>
     </nav>
@@ -47,8 +47,8 @@
     <br>
 
     <div>
-        <h2>Karte des Grishaverse</h2>
-        <img src='../images/images/map.jpg' style='width:100%'>
+        <h2>Datenschutz</h2>
+        <p>tetx text text</p>
     </div>
 
     <br>

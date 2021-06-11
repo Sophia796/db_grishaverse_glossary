@@ -23,13 +23,14 @@
             <li class='dropdown'>
                 <a href='about.php'>Das Grishaverse</a>
                 <div class='dropdown-content'>
-                    <a>Legenden der Grisha</a>
-                    <a>Glory or Grave</a>
-                    <a>King of Scars</a>
-                    <a>Begleitbücher</a>
-                    <a>Serie: Shadow and Bone</a>
+                    <a href='about.php#a1'>Legenden der Grisha</a>
+                    <a href='about.php#a2'>Glory or Grave</a>
+                    <a href='about.php#a3'>King of Scars</a>
+                    <a href='about.php#a4'>Begleitbücher</a>
+                    <a href='about.php#a5'>Serie: Shadow and Bone</a>
                 </div>
             </li>
+            <li><a href='author.php'>Leigh Bardugo</a></li>
             <li class='dropdown'>
                 <a href= 'glossary.php'>Glossar</a>
                 <div class='dropdown-content'>
@@ -59,17 +60,23 @@
     <!-- Slideshow -->
     <div class='slideshow-container'>
         <div class='mySlides fade'>
-            <div class='numbertext'>1 / 3</div>
+            <div class='numbertext'>1 / 4</div>
             <img src='../images/testimage.jpg' style='width:100%'> 
             <div class='text'>Das Grishaverse</div>
         </div>
         <div class='mySlides fade'>
-            <div class='numbertext'>2 / 3</div>
+            <div class='numbertext'>2 / 4</div>
+            <img src='../images/testimage.jpg' style='width:100%'>
+            <div class='text'>Leigh Bardugo</div>
+        </div>
+        <div class='mySlides fade'>
+            <div class='numbertext'>3 / 4</div>
             <img src='../images/testimage.jpg' style='width:100%'>
             <div class='text'>Glossar</div>
         </div>
+
         <div class='mySlides fade'>
-            <div class='numbertext'>3 / 3</div>
+            <div class='numbertext'>4 / 4</div>
             <img src='../images/testimage.jpg' style='width:100%'>
             <div class='text'>Karte</div>
         </div>
@@ -84,6 +91,7 @@
         <span class='dot' onclick='currentSlide(1)'></span>
         <span class='dot' onclick='currentSlide(2)'></span>
         <span class='dot' onclick='currentSlide(3)'></span>
+        <span class='dot' onclick='currentSlide(4)'></span>
     </div>
 
     <div class='footer'>
@@ -91,6 +99,7 @@
             <li style='float:left'><a>© S. Ackermann 2021</a></li>
             <li><a href='impressum.php'>Impressum</a></li>
             <li><a href='contact.php'>Kontakt</a></li>
+            <li><a href='privacy.php'>Datenschutz</a></li>
             <li><a href='sources.php'>Quellen</a></li>
         </ul>
     </div>
