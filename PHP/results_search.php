@@ -9,29 +9,19 @@ include ('navbar.inc.php');
     </div>
 
     <?php
-    $gt = $_REQUEST['grisha_typ'];
+    $s = $_REQUEST['search'];
     ?>
 
-    <h3>Grishatyp <?php echo $gt ?></h3>
+    <h3>Suche nach <?php echo $s ?></h3>
     <?php
 
     $configs = include('config.inc.php');
 
-    $result = mysqli_query($conn, 'SELECT
-    personen.vorname,
-    personen.nachname,
-    personen.weitere_namen,
-    grisha.grisha_typ AS grisha_typ
-    FROM
-    personen
-    JOIN grisha ON personen.grisha_typ = grisha.ID
-    WHERE
-    (grisha.grisha_typ = "' . $gt . '");
-    ');
+    $result = mysqli_query($conn, 'SELECT * FROM * WHERE * LIKE ' . $s .'');
 
 
     if (mysqli_num_rows($result) < 1) {
-        echo 'Keine Grisha des Typs  ' . $gt . ' gefunden.';
+        echo 'Keine Ergebnise für ' . $s . ' gefunden.';
     } else {
 
         echo '<ul>';

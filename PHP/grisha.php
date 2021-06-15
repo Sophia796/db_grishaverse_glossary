@@ -5,15 +5,14 @@ include ('navbar.inc.php');
 ?>
 
 <?php
-function sucheverarbeiten()
-{
-    if (isset($_POST['search'])) {
-        $s = $_POST['search'];
+function sucheverarbeiten(){
+    if (isset($_POST['grisha_typ'])) {
+        $gt = $_POST['grisha_typ'];
     } else {
-        $s = '';
+        $gt = '';
     }
 
-    header('Location: results_search.php?search=' . $s);
+    header('Location: results_grisha.php?grisha_typ=' . $gt);
 }
 ?>
 
@@ -26,10 +25,10 @@ if (isset($_POST['submitted'])) {
     <div>
         <h2>Glossar</h2>
     </div>
-    <h3>Freie Suche</h3>
+    <h3>Grisha nach Typ suchen</h3>
 
     <form action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>' method='post'>
-        <p><input type='text' name='search' /></p>
+        <p>Grishatyp: <input type='text' name='grisha_typ' /></p>
         <p><button type='submit' name='submitted'>Suchen</button></p>
     </form>
 

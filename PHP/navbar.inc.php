@@ -1,8 +1,8 @@
     <nav>
          <ul>
-            <li><a onclick='navStatus()' id='status' class='active' href='index.php'>Startseite</a></li>
+            <li><a onclick='navStatus(this)' href='index.php'>Startseite</a></li>
             <li class='dropdown'>
-                <a onclick='navStatus()' id='status' class='inactive' href='about.php'>Das Grishaverse</a>
+                <a onclick='navStatus(this)' href='about.php'>Das Grishaverse</a>
                 <div class='dropdown-content'>
                     <a href='about.php#a1'>Legenden der Grisha</a>
                     <a href='about.php#a2'>Glory or Grave</a>
@@ -11,22 +11,24 @@
                     <a href='about.php#a5'>Serie: Shadow and Bone</a>
                 </div>
             </li>
-            <li><a onclick='navStatus()' id='status' class='inactive' href='author.php'>Leigh Bardugo</a></li>
+            <li><a onclick='navStatus(this)' href='author.php'>Leigh Bardugo</a></li>
             <li class='dropdown'>
-                <a onclick='navStatus()' id='status' class='inactive'href='glossary.php'>Glossar</a>
+                <a onclick='navStatus(this)' href='glossary.php'>Glossar</a>
                 <div class='dropdown-content'>
                     <a>Personen</a>
-                    <a>Grisha</a>
+                    <a href='grisha.php'>Grisha</a>
                     <a>Orte</a>
                     <a>Begriffe</a>
-                    <a>Freie Suche</a>
                 </div>
             </li>
-            <li><a onclick='navStatus()' id='status' class='inactive' href='map.php'>Karte</a></li>
-            <li style='float:right'><a onclick='navStatus()' id='status' class='inactive'>Login</a></li>
+            <li><a onclick='navStatus(this)' href='map.php'>Karte</a></li>
+            <li style='float:right'><a>Login</a></li>
         </ul>
     </nav>
 
     <br>
 
     <script src='../Javascript/navbar.js'></script>
+
+
+    

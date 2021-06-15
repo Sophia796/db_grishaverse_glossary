@@ -24,7 +24,7 @@ nav ul li a:hover{
     background-color: black;                       /* Mouse Hover: Ändern der Farbe */
 }
   
-nav ul li .active{
+nav ul li a.active{
     background-color: #800000;                     /* Rot zeigt, auf welcher Seite man sich gerade befindet */
 }
   
