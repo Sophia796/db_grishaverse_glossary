@@ -3,34 +3,30 @@ $site_name = 'Grishaverse-Datenbank: Glossar';
 include ('header.inc.php'); 
 include ('navbar.inc.php');
 ?>
-
-<?php
-function sucheverarbeiten()
-{
-    if (isset($_POST['search'])) {
-        $s = $_POST['search'];
-    } else {
-        $s = '';
-    }
-
-    header('Location: results_search.php?search=' . $s);
-}
-?>
-
-<?php 
-if (isset($_POST['submitted'])) {
-    sucheverarbeiten();
-}
-?>
-
     <div>
         <h2>Glossar</h2>
     </div>
-    <h3>Freie Suche</h3>
 
-    <form action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>' method='post'>
-        <p><input type='text' name='search' /></p>
-        <p><button type='submit' name='submitted'>Suchen</button></p>
-    </form>
-
+    <div class='flex-container'>
+        <div class='item4'>
+            <h3><a class='link' href='glossary_begriffe.php' style='color: black'>Begriffe</a></h3>
+        </div>
+        <div class='item4'>
+            <h3><a class='link' href='#' style='color: black'>Personen</a></h3>
+            <a class='link' href='#'>Namen</a> <br>
+            <a class='link' href='#'>Gruppen</a> <br>
+        </div>
+        <div class='item4'>
+            <h3><a class='link' href='#'style='color: black'>Grisha</a></h3>
+            <a class='link' href='#'>Orden</a> <br>
+            <a class='link' href='#'>Typen</a>
+        </div>
+        <div class='item4'>
+            <h3><a class='link' href='#' style='color: black'>Orte</a></h3>
+            <a class='link' href='#'>Nationen</a> <br>
+            <a class='link' href='#'>Schauplätze</a> <br>
+            <a class='link' href='map.php'>Karte</a> 
+        </div>
+    </div>
+    
 <?php include ('footer.inc.php'); ?>

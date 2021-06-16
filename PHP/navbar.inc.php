@@ -15,14 +15,14 @@
             <li class='dropdown'>
                 <a onclick='navStatus(this)' href='glossary.php'>Glossar</a>
                 <div class='dropdown-content'>
-                    <a>Personen</a>
+                    <a href='glossary_begriffe.php'>Begriffe</a>
+                    <a href='#'>Personen</a>
                     <a href='grisha.php'>Grisha</a>
-                    <a>Orte</a>
-                    <a>Begriffe</a>
+                    <a href='#'>Orte</a>
                 </div>
             </li>
             <li><a onclick='navStatus(this)' href='map.php'>Karte</a></li>
-            <li style='float:right'><a>Login</a></li>
+            <li style='float:right'><a href='#'>Login</a></li>
         </ul>
     </nav>
 

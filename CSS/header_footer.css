@@ -8,8 +8,11 @@
 
 /* Footer */
 .footer{
+    width: 100%;
     background-color: #f1f1f1;
     padding: 0.5em;
+    bottom: 0;
+    position: static;
 }
   
 .footer ul{

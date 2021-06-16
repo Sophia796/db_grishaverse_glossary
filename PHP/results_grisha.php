@@ -2,6 +2,7 @@
 $site_name = 'Grishaverse-Datenbank: Ergebnisse Grisha nach Typ';
 include ('header.inc.php'); 
 include ('navbar.inc.php');
+include ('functions.php')
 ?>
 
     <div>

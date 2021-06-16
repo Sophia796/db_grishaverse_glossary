@@ -2,24 +2,7 @@
 $site_name = 'Grishaverse-Datenbank: Glossar';
 include ('header.inc.php'); 
 include ('navbar.inc.php');
-?>
-
-<?php
-function sucheverarbeiten(){
-    if (isset($_POST['grisha_typ'])) {
-        $gt = $_POST['grisha_typ'];
-    } else {
-        $gt = '';
-    }
-
-    header('Location: results_grisha.php?grisha_typ=' . $gt);
-}
-?>
-
-<?php 
-if (isset($_POST['submitted'])) {
-    sucheverarbeiten();
-}
+include ('functions.php')
 ?>
 
     <div>
@@ -28,8 +11,14 @@ if (isset($_POST['submitted'])) {
     <h3>Grisha nach Typ suchen</h3>
 
     <form action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>' method='post'>
-        <p>Grishatyp: <input type='text' name='grisha_typ' /></p>
+        <p>Grishatyp: <input type='text' name='grisha_typ'/></p>
         <p><button type='submit' name='submitted'>Suchen</button></p>
     </form>
+
+    <?php 
+    if (isset($_POST['submitted'])) {
+        sucheverarbeiten('grisha_typ', 'results_grisha.php');
+    }
+    ?>
 
 <?php include ('footer.inc.php'); ?>

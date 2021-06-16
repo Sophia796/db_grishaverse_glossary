@@ -4,6 +4,14 @@
     background-color: #f1f1f1;
     width: 100%;
 }
+
+.flex-container .item4{
+    background-color: #f1f1f1;
+    width: 25%;
+    margin: 1.5em;
+    text-align: center;
+    line-height: 2em; 
+}
   
 .flex-container .item3{
     background-color: #f1f1f1;
