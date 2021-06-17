@@ -1,0 +1,38 @@
+.big-letter{
+    background: #800000;
+    border-radius: 0.2em;
+    margin: 12px 0 0 60px;
+    padding: 0.5em 0.5em;
+    display: block;
+    width: 2em;
+    text-align: center;
+    font-family: 'Garamond', 'Georgia', serif;;
+    font-size: 2em;
+    color: #f1f1f1;
+    box-shadow: 0.2em 0.2em 0.5em #404040;
+}
+
+.letters-bg{
+    background-color: none;
+    margin: 12px 0 0 0;
+    padding: 0.5em 1.1em;
+    text-align: center;
+    font-size: 1.8em;
+    word-spacing: 0.75em;
+    line-height: 1.3em;
+}
+
+.glossary-bg {
+    margin-left: 16px;
+}
+
+.glossary-bg ul{
+    list-style-type: none;
+    margin-left: 16px;
+}
+
+.glossary-bg ul h3{
+    margin-left: 0;
+}
+
+

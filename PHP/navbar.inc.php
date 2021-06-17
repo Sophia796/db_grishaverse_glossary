@@ -16,7 +16,7 @@
                 <a onclick='navStatus(this)' href='glossary.php'>Glossar</a>
                 <div class='dropdown-content'>
                     <a href='glossary_begriffe.php'>Begriffe</a>
-                    <a href='#'>Personen</a>
+                    <a href='glossary_personen.php'>Personen</a>
                     <a href='grisha.php'>Grisha</a>
                     <a href='#'>Orte</a>
                 </div>

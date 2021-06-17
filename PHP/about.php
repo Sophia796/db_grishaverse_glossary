@@ -24,15 +24,15 @@ include ('navbar.inc.php');
         </p>
         <div class='flex-container'>
             <div class='item3'>
-                <h3>Goldene Flammen</h3>
+                <h3 style='margin-left: 0px'>Goldene Flammen</h3>
                 <img src='../images/images/goldene_flammen.jpg' style='width:50%'>
             </div>
             <div class='item3'>
-                <h3>Eisige Wellen</h3>
+                <h3 style='margin-left: 0px'>Eisige Wellen</h3>
                 <img src='../images/images/eisige_wellen.jpg' style='width:50%'>
             </div>
             <div class='item3'>
-                <h3>Lodernde Schwingen</h3>
+                <h3 style='margin-left: 0px'>Lodernde Schwingen</h3>
                 <img src='../images/images/lodernde_schwingen.jpg' style='width:50%'>
             </div>
         </div>
@@ -52,11 +52,11 @@ include ('navbar.inc.php');
         </p>
         <div class='flex-container'>
             <div class='item2'>
-                <h4>Das Lied der Krähen</h4>
+                <h3 style='margin-left: 0px'>Das Lied der Krähen</h3>
                 <img src='../images/images/lied_krähen.jpg' style='width:33%'>
             </div>
             <div class='item2'>
-                <h4>Das Gold der Krähen</h4>
+                <h3 style='margin-left: 0px'>Das Gold der Krähen</h3>
                 <img src='../images/images/gold_krähen.jpg' style='width:33%'>
             </div>
         </div>
@@ -76,11 +76,11 @@ include ('navbar.inc.php');
         </p>
         <div class='flex-container'>
             <div class='item2'>
-                <h3>King of Scars - Thron aus Gold und Asche</h3>
+                <h3 style='margin-left: 0px'>King of Scars - Thron aus Gold und Asche</h3>
                 <img src='../images/images/king_scars.jpg' style='width:33%'>
             </div>
             <div class='item2'>
-                <h3>Rule of Wolves - Thron aus Nacht und Silber</h3>
+                <h3 style='margin-left: 0px'>Rule of Wolves - Thron aus Nacht und Silber</h3>
                 <img src='../images/images/rule_wolves.jpg' style='width:33%'>
             </div>
         </div>
@@ -105,11 +105,11 @@ include ('navbar.inc.php');
         </p>
         <div class='flex-container'>
             <div class='item2'>
-                <h3>Die Sprache der Dornen</h3>
+                <h3 style='margin-left: 0px'>Die Sprache der Dornen</h3>
                 <img src='../images/images/sprache_dornen.jpg' style='width:33%'>
             </div>
             <div class='item2'>
-                <h3>Die Leben der Heiligen</h3>
+                <h3 style='margin-left: 0px'>Die Leben der Heiligen</h3>
                 <img src='../images/images/leben_heiligen.jpg' style='width:33%'>
             </div>
         </div>

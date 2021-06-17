@@ -1,8 +1,8 @@
 <?php 
-$site_name = 'Grishaverse-Datenbank: Ergebnisse Grisha nach Typ';
-include ('header.inc.php'); 
-include ('navbar.inc.php');
-include ('functions.php')
+$site_name = "Grishaverse-Datenbank: Ergebnisse Grisha nach Typ";
+include ("header.inc.php"); 
+include ("navbar.inc.php");
+include ("functions.php")
 ?>
 
     <div>
@@ -10,15 +10,15 @@ include ('functions.php')
     </div>
 
     <?php
-    $gt = $_REQUEST['grisha_typ'];
+    $gt = $_REQUEST["grisha_typ"];
     ?>
 
     <h3>Grishatyp <?php echo $gt ?></h3>
     <?php
 
-    $configs = include('config.inc.php');
+    $configs = include("config.inc.php");
 
-    $result = mysqli_query($conn, 'SELECT
+    $result = mysqli_query($conn, "SELECT
     personen.vorname,
     personen.nachname,
     personen.weitere_namen,
@@ -27,27 +27,27 @@ include ('functions.php')
     personen
     JOIN grisha ON personen.grisha_typ = grisha.ID
     WHERE
-    (grisha.grisha_typ = "' . $gt . '");
-    ');
+    (grisha.grisha_typ = '$gt' );
+    ");
 
 
     if (mysqli_num_rows($result) < 1) {
-        echo 'Keine Grisha des Typs  ' . $gt . ' gefunden.';
+        echo "Keine Grisha des Typs  " . $gt . " gefunden.";
     } else {
 
-        echo '<ul>';
+        echo "<ul>";
 
         while ($dsatz =  mysqli_fetch_assoc($result)) {
-            echo '<li>' . $dsatz['vorname'] , ' ',  $dsatz['nachname'];
-            if ($dsatz['weitere_namen']) {
-                echo ' (', $dsatz['weitere_namen'] , ')';
+            echo "<li>" . $dsatz["vorname"] , " ",  $dsatz["nachname"];
+            if ($dsatz["weitere_namen"]) {
+                echo " (", $dsatz["weitere_namen"] , ")";
             } 
-            echo '</li>';
+            echo "</li>";
         }
 
-        echo '</ul>';
+        echo "</ul>";
     }
 
     ?>
 
-<?php include ('footer.inc.php'); ?>
+<?php include ("footer.inc.php"); ?>

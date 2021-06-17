@@ -5,7 +5,7 @@ include ("navbar.inc.php");
 ?>
 
     <div>
-        <h2>Begriffe</h2>
+        <h2>Personen</h2>
     </div>
 
     <div class="letters-bg">
@@ -34,16 +34,46 @@ include ("navbar.inc.php");
 
         echo "<div id='letter-$i' class='big-letter'>" . $i . "</div>";
 
-        $result = mysqli_query($conn, "SELECT begriffe.begriff, begriffe.beschreibung
-        FROM begriffe
-        WHERE begriffe.begriff LIKE '$i%'
-        ORDER BY begriffe.begriff ASC");
+        $result = mysqli_query($conn, "SELECT *
+        FROM personen
+        WHERE personen.vorname LIKE '$i%' OR personen.nachname LIKE '$i%'
+        ORDER BY personen.vorname ASC");
+
+        $nation = mysqli_query($conn, "SELECT nationen.name FROM nationen 
+        JOIN personen ON personen.nation = nationen.id
+        WHERE personen.vorname LIKE '$i%' OR personen.nachname LIKE '$i%'
+        ORDER BY personen.vorname ASC");
+
+        $grisha = mysqli_query($conn, "SELECT grisha.grisha_typ, grisha.fähigkeit FROM grisha 
+        JOIN personen ON personen.grisha_typ = grisha.id
+        WHERE personen.vorname LIKE '$i%' OR personen.nachname LIKE '$i%'
+        ORDER BY personen.vorname ASC");
+
 
         echo "<div class='glossary-bg'><ul>";
 
         while ($j = mysqli_fetch_assoc($result)) {
-            echo "<li><h3>" . $j["begriff"] . "</li></h3>";
-            echo $j["beschreibung"] . "<br><br>";
+
+            echo "<li><h3>" . $j["vorname"] . " " . $j["nachname"] . "</li></h3>";
+
+            if ($j["weitere_namen"]) {
+                echo "Auch genannt: " . $j["weitere_namen"] . "<br>";
+            }  
+
+            echo $j["sonstiges"] . "<br>";
+
+            /*
+
+            if ($j["grisha_typ"]) {
+                echo mysqli_fetch_assoc($grisha)["grisha_typ"] . ", Fähigkeit: " . mysqli_fetch_assoc($grisha)["fähigkeit"] . "<br>";
+            }
+
+            if ($j["nation"]) {
+                echo "Nation: " . mysqli_fetch_assoc($nation)["name"] . "<br>";
+            }
+            */
+
+            echo "<br><br>";
         }
 
         echo "</ul></div>";

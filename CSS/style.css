@@ -17,19 +17,28 @@ h1{
 h2{
   font-family: 'Garamond', 'Georgia', serif;
   font-size: 2em;     
-  color: black;                                 
+  color: black;    
+  margin-left: 12px;                    
 }
 
 h3{
   font-family: 'Garamond', 'Georgia', serif;
   font-size: 1.5em;  
   color: black;
+  margin-left: 12px; 
 }
 
 h4{
   font-family: 'Garamond', 'Georgia', serif;
   font-size: 1.3em;  
-  color: black;
+  color: black; 
+  margin-left: 12px; 
+}
+
+p{
+  margin-left: 12px;  
+  margin-right: 12px;
+  text-align: justify;
 }
 
 
