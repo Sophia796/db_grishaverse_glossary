@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Mai 2021 um 14:39
+-- Erstellungszeit: 18. Jun 2021 um 10:34
 -- Server-Version: 10.4.18-MariaDB
 -- PHP-Version: 8.0.5
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `begriffe` (
   `ID` int(10) NOT NULL,
-  `begriff` text NOT NULL,
+  `name` text NOT NULL,
   `beschreibung` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -37,7 +37,7 @@ CREATE TABLE `begriffe` (
 -- Daten für Tabelle `begriffe`
 --
 
-INSERT INTO `begriffe` (`ID`, `begriff`, `beschreibung`) VALUES
+INSERT INTO `begriffe` (`ID`, `name`, `beschreibung`) VALUES
 (1, 'Banya', 'thermenähnliches Gemeinschaftsbad mit heißen und kalten Becken'),
 (2, 'Barrel ', 'Vergnügungsviertel in Ketterdam'),
 (3, 'Demjin', 'Fjerdan für \'Dämon\''),
@@ -74,7 +74,20 @@ INSERT INTO `begriffe` (`ID`, `begriff`, `beschreibung`) VALUES
 (34, 'Black Tips', 'Gang in Ketterdam'),
 (35, 'Gezeitenrat', 'Zusammenschluss von Flutern, die Ebbe und Flut im Hafen von Ketterdam kontrollieren'),
 (36, 'Zweite Armee', 'magische Grisha-Armee des Zaren von Ravka, angeführt vom Dunklen, später von der Triarchie'),
-(37, 'Krähen', 'die Gruppe bestehend aus Kaz Brekker, Inej Ghafa, Jesper Fahey, Nina Zenik, Matthias Helvar und Wylan Van Eck; der Name ist abgeleitet vom Krähentattoo der Dregs');
+(37, 'Krähen', 'die Gruppe bestehend aus Kaz Brekker, Inej Ghafa, Jesper Fahey, Nina Zenik, Matthias Helvar und Wylan Van Eck; der Name ist abgeleitet vom Krähentattoo der Dregs'),
+(38, 'Entherzer', 'Grisha im Orden der Korporalki, Fähigkeit: Beherrschen des Körpers, Kefta-Farbe: rot'),
+(39, 'Heiler', 'Grisha im Orden der Korporalki, Fähigkeit: Beherrschen des Körpers, insbesondere Heilen von Wunden, Kefta-Farbe: rot'),
+(40, 'Stürmer', 'Grisha im Orden der Ätheralki, Fähigkeit: Beschwörung von Wind und Wetter, Keftafarbe: blau'),
+(41, 'Fluter', 'Grisha im Orden der Ätheralki, Fähigkeit: Beschwörung von Wasser, Keftafarbe: blau'),
+(42, 'Inferni', 'Grisha im Orden der Ätheralki, Fähigkeit: Beschwörung von Feuer, Keftafarbe: blau'),
+(43, 'Durast', 'Grisha im Orden der Materialki, Fähigkeit: Farbrikation und Manipulation von festen Stoffen, Keftafarbe: purpur'),
+(44, 'Alkemi', 'Grisha im Orden der Materialki, Fähigkeit: Farbrikation und Manipulation von Chemikalien, Keftafarbe: purpur'),
+(45, 'Bildner', 'Grisha mit der einzigartigen Fähigkeit, das Aussehen zu manipulieren; kann keinem Orden zugeordnet werden, da die Fähigkeiten eine Mischung aus Korporalki und Materialki darstellen'),
+(46, 'Korporalki', 'Grisha-Orden der Lebenden und der Toten'),
+(47, 'Ätheralki', 'Grisha-Orden der Beschwörer'),
+(48, 'Materialki', 'Grisha-Orden der Fabrikatoren'),
+(49, 'Dunkler', 'Grisha mit der einzigartigen Fähigkeit, die Dunkelheit zu Beschwören; Anführer der Zweiten Armee; Keftafarbe: schwarz'),
+(50, 'Sonnenkriegerin', 'Grisha mit der einzigartigen Fähigkeit, Licht zu Beschwören; von Gläubigen als Heilige verehrt; Keftafarbe: gold');
 
 -- --------------------------------------------------------
 
@@ -84,9 +97,9 @@ INSERT INTO `begriffe` (`ID`, `begriff`, `beschreibung`) VALUES
 
 CREATE TABLE `grisha` (
   `ID` int(10) UNSIGNED NOT NULL,
-  `grisha_typ` text NOT NULL,
+  `name` text NOT NULL,
   `orden` int(10) NOT NULL,
-  `fähigkeit` text NOT NULL,
+  `beschreibung` text NOT NULL,
   `kefta_farbe` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -94,17 +107,17 @@ CREATE TABLE `grisha` (
 -- Daten für Tabelle `grisha`
 --
 
-INSERT INTO `grisha` (`ID`, `grisha_typ`, `orden`, `fähigkeit`, `kefta_farbe`) VALUES
-(1, 'Entherzer', 1, 'Beherrschen des Körpers, Ausbildung zum Kampf', 'rot'),
-(2, 'Heiler', 1, 'Beherrschen des Körpers, Heilen von Wunden', 'rot'),
-(3, 'Stürmer', 2, 'Beschwörung von Wind und Wetter', 'blau'),
-(4, 'Fluter', 2, 'Beschwörung von Wasser', 'blau'),
-(5, 'Inferni', 2, 'Beschwörung von Feuer', 'blau'),
-(6, 'Durast', 3, 'Fabrikation und Manipulation von festen Stoffen (z.B. Glas, Stahl, Holz)', 'purpur'),
-(7, 'Alkemi', 3, 'Fabrikation und Manipulation von Chemikalien (z.B. Gift, Sprengstoff)', 'purpur'),
-(8, 'Dunkler', 2, 'Beschwörung von Dunkelheit', 'schwarz'),
-(9, 'Sonnenkrieger', 2, 'Beschwörung von Licht', 'gold'),
-(10, 'Bildner', 1, 'Manipulation des Körpers und des Aussehens', 'weiß, rot');
+INSERT INTO `grisha` (`ID`, `name`, `orden`, `beschreibung`, `kefta_farbe`) VALUES
+(1, 'Entherzer', 1, 'Fähigkeit: Beherrschen des Körpers, Ausbildung zum Kampf', 'rot'),
+(2, 'Heiler', 1, 'Fähigkeit: Beherrschen des Körpers, Heilen von Wunden', 'rot'),
+(3, 'Stürmer', 2, 'Fähigkeit: Beschwörung von Wind und Wetter', 'blau'),
+(4, 'Fluter', 2, 'Fähigkeit: Beschwörung von Wasser', 'blau'),
+(5, 'Inferni', 2, 'Fähigkeit: Beschwörung von Feuer', 'blau'),
+(6, 'Durast', 3, 'Fähigkeit: Fabrikation und Manipulation von festen Stoffen (z.B. Glas, Stahl, Holz)', 'purpur'),
+(7, 'Alkemi', 3, 'Fähigkeit: Fabrikation und Manipulation von Chemikalien (z.B. Gift, Sprengstoff)', 'purpur'),
+(8, 'Dunkler', 2, 'Fähigkeit: Beschwörung von Dunkelheit', 'schwarz'),
+(9, 'Sonnenkrieger', 2, 'Fähigkeit: Beschwörung von Licht', 'gold'),
+(10, 'Bildner', 1, 'Fähigkeit: Manipulation des Körpers und des Aussehens', 'weiß, rot');
 
 -- --------------------------------------------------------
 
@@ -114,7 +127,7 @@ INSERT INTO `grisha` (`ID`, `grisha_typ`, `orden`, `fähigkeit`, `kefta_farbe`) 
 
 CREATE TABLE `grisha_orden` (
   `ID` int(10) UNSIGNED NOT NULL,
-  `orden` text NOT NULL,
+  `name` text NOT NULL,
   `beschreibung` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -122,7 +135,7 @@ CREATE TABLE `grisha_orden` (
 -- Daten für Tabelle `grisha_orden`
 --
 
-INSERT INTO `grisha_orden` (`ID`, `orden`, `beschreibung`) VALUES
+INSERT INTO `grisha_orden` (`ID`, `name`, `beschreibung`) VALUES
 (1, 'Korporalki', 'Orden der Lebenden und der Toten'),
 (2, 'Ätheralki', 'Orden der Beschwörer'),
 (3, 'Materialki', 'Orden der Fabrikatoren');
@@ -135,15 +148,15 @@ INSERT INTO `grisha_orden` (`ID`, `orden`, `beschreibung`) VALUES
 
 CREATE TABLE `gruppen` (
   `ID` int(10) NOT NULL,
-  `gruppe` text NOT NULL,
-  `ort` int(10) NOT NULL
+  `name` text NOT NULL,
+  `nation` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `gruppen`
 --
 
-INSERT INTO `gruppen` (`ID`, `gruppe`, `ort`) VALUES
+INSERT INTO `gruppen` (`ID`, `name`, `nation`) VALUES
 (1, 'Black Tips', 1),
 (2, 'Dime-Lions', 1),
 (3, 'Dregs', 1),
@@ -192,14 +205,14 @@ CREATE TABLE `personen` (
   `nation` int(10) NOT NULL,
   `gruppe` int(10) DEFAULT NULL,
   `grisha_typ` int(10) DEFAULT NULL,
-  `sonstiges` text DEFAULT NULL
+  `beschreibung` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `personen`
 --
 
-INSERT INTO `personen` (`ID`, `vorname`, `nachname`, `weitere_namen`, `geschlecht`, `nation`, `gruppe`, `grisha_typ`, `sonstiges`) VALUES
+INSERT INTO `personen` (`ID`, `vorname`, `nachname`, `weitere_namen`, `geschlecht`, `nation`, `gruppe`, `grisha_typ`, `beschreibung`) VALUES
 (1, 'Adrik', 'Zhabin', NULL, 'm', 3, 5, 3, 'Grisha in der Ausbildung, Nadias jüngerer Bruder'),
 (2, 'Alexander', 'Lantsov', 'Alexander III. ', 'm', 3, 0, 0, 'Zar von Ravka'),
 (3, 'Alina', 'Starkov', 'Sankta Alina, Sol Koroleva (Sonnenkönigin)', 'w', 3, 5, 9, 'Kartografin in der Ersten Armee von Ravka, einzigartige Grisha mit verborgenen Fähigkeiten'),
@@ -279,7 +292,7 @@ INSERT INTO `personen` (`ID`, `vorname`, `nachname`, `weitere_namen`, `geschlech
 
 CREATE TABLE `schauplaetze` (
   `ID` int(10) NOT NULL,
-  `schauplatz` text NOT NULL,
+  `name` text NOT NULL,
   `nation` int(10) NOT NULL,
   `beschreibung` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -288,7 +301,7 @@ CREATE TABLE `schauplaetze` (
 -- Daten für Tabelle `schauplaetze`
 --
 
-INSERT INTO `schauplaetze` (`ID`, `schauplatz`, `nation`, `beschreibung`) VALUES
+INSERT INTO `schauplaetze` (`ID`, `name`, `nation`, `beschreibung`) VALUES
 (1, 'Balakirev', 3, 'kleine Stadt in der Nähe von Os Alta'),
 (2, 'Cera Huo', 5, 'Feuerfälle im östlichen Teil der Sikurzoi-Gebirges'),
 (4, 'Chernast', 3, 'Außenposten im Norden von Tsibeya'),
@@ -370,7 +383,7 @@ ALTER TABLE `schauplaetze`
 -- AUTO_INCREMENT für Tabelle `begriffe`
 --
 ALTER TABLE `begriffe`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT für Tabelle `grisha`

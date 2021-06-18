@@ -1,32 +1,47 @@
 <?php 
-$site_name = 'Grishaverse-Datenbank: Glossar';
-include ('header.inc.php'); 
-include ('navbar.inc.php');
+$site_name = "Grishaverse-Datenbank: Glossar";
+include ("header.inc.php"); 
+include ("navbar.inc.php");
 ?>
     <div>
         <h2>Glossar</h2>
     </div>
 
-    <div class='flex-container'>
-        <div class='item4'>
-            <h3 style='margin-left: 0'><a class='link' href='glossary_begriffe.php' style='color: black'>Begriffe</a></h3>
-        </div>
-        <div class='item4'>
-            <h3 style='margin-left: 0'><a class='link' href='glossary_personen.php' style='color: black'>Personen</a></h3>
-            <a class='link' href='#'>Namen</a> <br>
-            <a class='link' href='#'>Gruppen</a> <br>
-        </div>
-        <div class='item4'>
-            <h3 style='margin-left: 0'><a class='link' href='#'style='color: black'>Grisha</a></h3>
-            <a class='link' href='#'>Orden</a> <br>
-            <a class='link' href='#'>Typen</a>
-        </div>
-        <div class='item4'>
-            <h3 style='margin-left: 0'><a class='link' href='#' style='color: black'>Orte</a></h3>
-            <a class='link' href='#'>Nationen</a> <br>
-            <a class='link' href='#'>Schauplätze</a> <br>
-            <a class='link' href='map.php'>Karte</a> 
-        </div>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Begriffe')" id="defaultOpen">Begriffe</button>
+        <button class="tablinks" onclick="openTab(event, 'Personen')">Personen</button>
+        <button class="tablinks" onclick="openTab(event, 'Grisha')">Grisha</button>
+        <button class="tablinks" onclick="openTab(event, 'Orte')">Orte</button>
     </div>
+
+    <?php 
+    $configs = include("config.inc.php");
+    ?>
+
+    <div id="Begriffe" class="tabcontent">
+        <?php 
+        include ("glossary_begriffe.php"); 
+        ?>
+    </div>
+
+    <div id="Personen" class="tabcontent">
+        <?php 
+        include ("glossary_personen.php"); 
+        ?>
+    </div>
+
+    <div id="Grisha" class="tabcontent">
+        <?php 
+        include ("glossary_grisha.php"); 
+        ?>
+    </div>
+
+    <div id="Orte" class="tabcontent">
+        <?php 
+        include ("glossary_orte.php"); 
+        ?>
+    </div>
+
+    <script src="../Javascript/glossary_tabs.js"></script>
     
-<?php include ('footer.inc.php'); ?>
+<?php include ("footer.inc.php"); ?>
