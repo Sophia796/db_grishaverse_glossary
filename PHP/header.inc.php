@@ -11,6 +11,7 @@
     <link rel='stylesheet' href='../CSS/slideshow.css'>
     <link rel='stylesheet' href='../CSS/flexbox.css'>
     <link rel='stylesheet' href='../CSS/glossary.css'>
+    <link rel='stylesheet' href='../CSS/form.css'>
     <!-- JQuery -->
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <!-- Select2 Bibliothek-->
