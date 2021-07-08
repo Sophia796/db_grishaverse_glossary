@@ -4,17 +4,26 @@ include ("header.inc.php");
 include ("navbar.inc.php");
 ?>
 
+    <h2>Kontakt</h2>
+
     <?php
-    // Festlegen von Fehlermeldungen, Wenn notwendige Angaben im Kontaktformular fehlen
+        // Festlegen von Fehlermeldungen, wenn notwendige Angaben im Kontaktformular fehlen 
+        $fnameErr = $lnameErr = $emailErr = $phoneErr = $messageErr = "";
+        $fname = $lname = $email = $phone = $message = "";
+    
+        // Funktion zum Testen von Userinput (zum Schutz vor Hackern)
+        function test_input($data) {
+            $data = trim($data);                                  // unnötige Zeichen löschen (Leerzeichen, Tab ect.) 
+            $data = stripslashes($data);                          // Backslashes löschen
+            $data = htmlspecialchars($data);                      // konvtertiert Sonderzeichen zu HTML Entities (z.B. < zu &lt;)
+            return $data;
+        }
 
-        $fnameErr = $lnameErr = $emailErr = $phoneErr = $subjectErr = "";
-        $fname = $lname = $email = $phone = $subject = "";
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_POST) {
             if (empty($_POST["fname"])) {
               $fnameErr = "Bitte geben Sie Ihren Vornamen an.";
             } else {
-              $fname = test_input($_POST["fname"]);
+              $fname = test_input($_POST["fname"]);              // Wenn Eingabe nicht leer, dann Input testen
             }
 
             if (empty($_POST["lname"])) {
@@ -27,70 +36,53 @@ include ("navbar.inc.php");
                 $emailErr = "Bitte geben Sie Ihre E-Mail-Adresse an.";
             } else {
                 $email = test_input($_POST["email"]);
-                // Überprüfen, ob E-mail Adresse richtif formatiert ist
+                // Überprüfen, ob E-mail Adresse richtig formatiert ist
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $emailErr = "Ungültige E-mail-Adresse!";
-                  }
+                    $emailErr = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
+                }
             }
 
             if (empty($_POST["phone"])) {
-                $emailErr = "";
+                $phoneErr = "";
             } else {
-                $email = test_input($_POST["phone"]);
+                $phone = test_input($_POST["phone"]);
             }
           
-            if (empty($_POST["subject"])) {
-                $subjectErr = "Bitte geben Sie eine Nachricht ein.";
+            if (empty($_POST["message"])) {
+                $messageErr = "Bitte geben Sie eine Nachricht ein.";
             } else {
-                $subject = test_input($_POST["subject"]);
+                $message = test_input($_POST["message"]);
             }
-        }
-
-        // Input Daten testen
-        function test_input($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
         }
     ?>
 
     <!-- Kontaktformular -->
 
-    <h2>Kontakt</h2>
-
-    <form class="flex-container" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <form class="flex-container" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  <!-- action="contact_submitted.php" -->
         <div class="item2">
             <label for="fname">Vorname</label>
-            <span class="error">* <?php echo $fnameErr;?></span>
-            <input type="text" id="fname" name="firstname">
+            <span class="error">* <?php echo $fnameErr;?></span>                 
+            <input type="text" id="fname" name="fname" value="<?php echo $fname;?>">
 
             <label for="lname">Nachname</label>
             <span class="error">* <?php echo $lnameErr;?></span>
-            <input type="text" id="lname" name="lastname">
+            <input type="text" id="lname" name="lname" value="<?php echo $lname;?>">
 
             <label for="email">E-Mail-Adresse</label>
             <span class="error">* <?php echo $emailErr;?></span>
-            <input type="text" id="email" name="email">
+            <input type="text" id="email" name="email" value="<?php echo $email;?>">
 
             <label for="phone">Telefon-Nr.</label>
             <span class="error"><?php echo $phoneErr;?></span>
-            <input type="text" id="phone" name="phone">
+            <input type="text" id="phone" name="phone" value="<?php echo $phone;?>">
         </div>
 
         <div class="item2">
-            <label for="subject">Nachricht</label>
-            <span class="error">* <?php echo $subjectErr;?></span>
-            <textarea id="subject" name="subject" style="height:232.5px"></textarea>
+            <label for="message">Nachricht</label>
+            <span class="error">* <?php echo $messageErr;?></span>
+            <textarea id="message" name="message" style="height:232.5px"><?php echo $message;?></textarea>
             <input type="submit" value="Senden">
         </div>
     </form>
-
-    <?php
-    echo "<p>Sehr geehrte/r $fname $lname, <br>
-    Vielen Dank für Ihre Nachricht: <br>
-    $subject <br>
-    Wir kontaktieren Sie in Kürze unter folgender E-Mail-Adresse: $email.</p>"
-    ?>
 
 <?php include ("footer.inc.php"); ?>
