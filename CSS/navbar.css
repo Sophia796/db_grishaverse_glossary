@@ -12,6 +12,10 @@ nav ul li{
     float: left;
     font-size: 1.2em;
 }
+
+nav ul li.right{
+    float:right;
+}  
   
 nav ul li a{
     display: block;
@@ -28,14 +32,24 @@ nav ul li a:hover{
 nav ul li a.active{
     background-color: #800000;                     /* Rot zeigt, auf welcher Seite man sich gerade befindet */
 }
-  
+
   
 /* Dropdown */
 li.dropdown{
     display: inline-block;
 }
+
+li.dropdown a.dropdown-item{
+    background-color:#404040;
+    color: white;
+}
+
+li.dropdown a.dropdown-item:hover{
+    background-color: black;   
+    color: white;
+}
   
-li .dropdown:hover{
+li.dropdown:hover{
     background-color: #f9f9f9;
 }
   
@@ -61,4 +75,13 @@ li .dropdown:hover{
   
 .dropdown:hover .dropdown-content{
     display: block;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 700px) {
+    nav ul li {float: none;}
+    nav ul li.right {float: none;}
+    .dropdown {display: block; float: none;}
+    .dropdown a.dropdown-item{display: block; float: none;}
+    .dropdown:hover .dropdown-content{display: none;}
 }

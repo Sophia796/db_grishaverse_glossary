@@ -2,7 +2,7 @@
          <ul>
             <li><a href="index.php"class="active">Startseite</a></li>
             <li class="dropdown">
-                <a href="about.php">Das Grishaverse</a>
+                <a class="dropdown-item" href="about.php">Das Grishaverse</a>
                 <div class="dropdown-content">
                     <a href="about.php#a1">Legenden der Grisha</a>
                     <a href="about.php#a2">Glory or Grave</a>
@@ -14,7 +14,7 @@
             <li><a href="author.php">Leigh Bardugo</a></li>
             <li><a href="glossary.php">Glossar</a></li>
             <li><a href="map.php">Karte</a></li>
-            <li style="float:right"><a href="#">Login</a></li>
+            <li class="right"><a href="#">Login</a></li>
         </ul>
     </nav>
 

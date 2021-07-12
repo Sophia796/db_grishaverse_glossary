@@ -1,5 +1,9 @@
-$(function(){
-    $("nav ul li a").click(function(){
-        $(this).toggleClass("active");
-      });
-});
+/* Responsive-Design */
+function makeResponsive() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
