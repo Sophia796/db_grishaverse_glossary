@@ -36,3 +36,20 @@
     text-align: center;
     line-height: 2em; 
 }
+
+/* Responsive Design: auf kleinen Bildschirmen Spalten untereinander statt nebeneinander */
+@media (max-width: 700px) {
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+      }
+    .flex-container .item4 {
+        width: 100%;
+    }
+    .flex-container .item3 {
+        width: 100%;
+    }
+    .flex-container .item2 {
+        width: 100%;
+    }
+}
