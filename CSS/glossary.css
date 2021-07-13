@@ -34,6 +34,7 @@
   
 
 /* Glossar */
+/* Große Buchstaben als Begrenzung der Einträge */
 .big-letter{
     background: #800000;
     border-radius: 0.2em;
@@ -48,6 +49,7 @@
     box-shadow: 0.2em 0.2em 0.5em #404040;
 }
 
+/* Alphabet mit Links zu den Einträgen */
 .letters-bg{
     background-color: none;
     margin: 12px 0 0 0;
@@ -58,6 +60,7 @@
     line-height: 1.3em;
 }
 
+/* Einträge */
 .glossary-bg {
     margin-left: 16px;
 }
