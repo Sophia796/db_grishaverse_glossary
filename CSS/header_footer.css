@@ -32,6 +32,11 @@
     text-decoration: none;
 }
 
+.footer ul li.left{
+    float: left;
+}
+
+
 /* Links im Footer */
 .footer ul li a:link{
     text-decoration: none;
@@ -48,4 +53,10 @@
 
 .footer ul li a:active{
     color: #800000;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 700px) {
+    .footer ul li {float: none;}
+    .footer ul li.left {float: none;}
 }
