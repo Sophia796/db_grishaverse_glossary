@@ -23,9 +23,9 @@
 --> 
 
     <div class="topnav" id="myTopnav">
-    	<a href="index.php" class="active">Startseite</a>
+    	<a onclick="toggleActive()" id="mySite" class="active" href="index.php">Startseite</a>
         <div class="dropdown">
-            <a href="about.php">
+            <a onclick="toggleActive()" id="mySite" href="about.php">
                 <button class="dropbtn">Das Grishaverse
                     <i class="fa fa-caret-down"></i>
                 </button>
@@ -38,10 +38,10 @@
                 <a href="about.php#a5">Serie: Shadow and Bone</a>
             </div>
         </div>
-        <a href="author.php">Leigh Bardugo</a>
-        <a href="glossary.php">Glossar</a>
-        <a href="map.php">Karte</a>
-        <a class="right" href="#">Login</a>
+        <a onclick="toggleActive()" id="mySite" href="author.php">Leigh Bardugo</a>
+        <a onclick="toggleActive()" id="mySite" href="glossary.php">Glossar</a>
+        <a onclick="toggleActive()" id="mySite" href="map.php">Karte</a>
+        <a onclick="toggleActive()" id="mySite" class="right" href="#">Login</a>
         <a href="javascript:void(0);" class="icon" onclick="makeResponsive()">&#9776;</a>
     </div>
 
@@ -57,6 +57,14 @@
                 x.className = "topnav";
             }
         }
+
+        function toggleActive() {
+            var x = document.getElementById("mySite");
+            /* x.classList.toggle("active"); */
+            x.addClass("active"); 
+            x.siblings().removeClass("active"); 
+        }
+
     </script>
 
     <script>src="../Javascript/navbar.js"></script>   
