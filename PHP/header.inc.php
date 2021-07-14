@@ -23,5 +23,5 @@
 
 <body>
     <div class="header">
-        <h1>GRISHAVERSE</h1>
+        <a href="index.php"><img src="../images/images/logo.jpg" style="width:10%"></a>
     </div>
