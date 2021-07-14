@@ -1,12 +1,12 @@
     
-    <nav id="nav" class="nav">
+    <nav id="topnav" class="responsive">
          <ul>
             <li><a href="index.php" class="active">Startseite</a></li>
             <li class="dropdown">
                 <a class="dropdown-item" href="about.php">Das Grishaverse
-                    <i class="fa fa-caret-down"></i>
+                    <!-- <i class="fa fa-caret-down"></i> -->
                 </a>
-                <div class="dropdown-content">
+                <div id="dropdown-content" class="dropdown-content">
                     <a href="about.php#a1">Legenden der Grisha</a>
                     <a href="about.php#a2">Glory or Grave</a>
                     <a href="about.php#a3">King of Scars</a>
@@ -26,12 +26,8 @@
 
     <script>
         function mobileMenu() {
-            var x = document.getElementByID("nav");
-            if (x.className === "nav") {
-                x.className += " responsive";
-            } else {
-                x.className = "nav";
-            }
+            var x = document.getElementByID("topnav");
+            x.classList.toggle("responsive");
         }
     </script>
 

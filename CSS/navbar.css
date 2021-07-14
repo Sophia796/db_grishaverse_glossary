@@ -1,5 +1,5 @@
 /* Navigationsleiste */
-nav ul{
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -13,11 +13,11 @@ nav ul li{
     font-size: 1.2em;
 }
 
-nav ul li.right{
+nav ul li.right {
     float: right;                                   /* Login soll nach rechts ausgerichtet sein */
 }  
   
-nav ul li a{
+nav ul li a {
     display: block;
     color: white;
     text-align: center;
@@ -25,11 +25,11 @@ nav ul li a{
     text-decoration: none;
 }
     
-nav ul li a:hover{
+nav ul li a:hover {
     background-color: black;                       /* Mouse Hover: Ändern der Farbe */
 }
   
-nav ul li a.active{
+nav ul li a.active {
     background-color: #800000;                     /* aktive Seite markiert (Seite auf der man sich gerade befindet) */
 }
 
@@ -40,26 +40,26 @@ nav ul li a.icon {
 
   
 /* Dropdown */
-li.dropdown{
+nav .dropdown{
     display: inline-block;
 }
 
-li.dropdown a.dropdown-item{
+nav .dropdown a.dropdown-item {
     background-color:#404040;
     color: white;
 }
 
-li.dropdown a.dropdown-item:hover{
+nav .dropdown a.dropdown-item:hover {
     background-color: black;   
     color: white;
 }
   
-li.dropdown:hover{
+nav .dropdown:hover {
     background-color: #f9f9f9;
 }
   
-.dropdown-content{
-    display: none;
+nav .dropdown-content {
+    display: none;                                    /* bei default ausgeblendet, nur mit Mouse Hover sichtbar */
     position: absolute;
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -67,7 +67,7 @@ li.dropdown:hover{
     z-index: 2;                                       /* hoher z-index --> weiter im Vordergrund */
 }
   
-.dropdown-content a{
+nav .dropdown-content a {
     color: #404040;
     padding: 0.8em;
     text-decoration: none;
@@ -75,11 +75,11 @@ li.dropdown:hover{
     text-align: left;
 }
   
-.dropdown-content a:hover{
+nav .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
-  
-.dropdown:hover .dropdown-content{
+
+nav .dropdown:hover .dropdown-content{
     display: block;
 }
 
@@ -87,7 +87,7 @@ li.dropdown:hover{
 @media screen and (max-width: 700px) {
 
     /* auf kleinen Bildschirmen Navigationsleiste ausblenden*/
-    nav ul li a{display: none;}
+    nav ul li a {display: none;}
     nav ul li a.right {display: none;}
     .dropdown {display: none;}
     .dropdown a.dropdown-item {display: none;}
@@ -95,8 +95,8 @@ li.dropdown:hover{
 
     /* Icon einblenden, das das Menü bei kleinen Bildschirmen öffnet und schließt */
     nav ul li a.icon {
-        float: center;
         display: block;
+        float: center;
     }
 }
 
@@ -105,41 +105,58 @@ li.dropdown:hover{
 /* Sie sorgt für eine vertikale Darstellung des Menüs auf kleinen Bildschirmen */
 @media screen and (max-width: 700px) {
 
-    .nav.responsive ul li {
+    nav.responsive ul li {
         float: none;
         position: relative;
+        display: block;
     }
 
-    .nav.responsive ul li.right {
+    nav.responsive ul li.right {
         float: none;
+        display: block;
     }
 
-    .nav.responsive ul li a.icon {
+    nav.responsive ul li a.icon {
         position: absolute;
         right: 0;
         top: 0;
     }
 
-    .nav.responsive a {
+    nav.responsive a {
         float: none;
         display: block;
         text-align: center;
     }
 
-    .nav.responsive .dropdown {
+    nav.responsive .dropdown {
         display: block;
         float: none;
     }
 
-    .nav.responsive .dropdown a.dropdown-item {
-      display: block;
-      width: 100%;
-      text-align: center;
-      float: none;
+    nav.responsive .dropdown a.dropdown-item {
+        display: block;
+        width: 100%;
+        text-align: center;
+        float: none;
     }
 
-    .nav.responsive .dropdown-content {
-      width: 100%;
-      text-align: center;
+    nav.responsive .dropdown-content {
+        display: none;
     }
-  }
+
+    nav.responsive .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    /*
+    .navresponsive .dropdown-content-show {
+        position: relative;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    */
+}
+
+
+  
