@@ -1,9 +1,11 @@
-    <!--
-    <nav>
+    
+    <nav id="nav" class="nav">
          <ul>
-            <li><a href="index.php"class="active">Startseite</a></li>
+            <li><a href="index.php" class="active">Startseite</a></li>
             <li class="dropdown">
-                <a class="dropdown-item" href="about.php">Das Grishaverse</a>
+                <a class="dropdown-item" href="about.php">Das Grishaverse
+                    <i class="fa fa-caret-down"></i>
+                </a>
                 <div class="dropdown-content">
                     <a href="about.php#a1">Legenden der Grisha</a>
                     <a href="about.php#a2">Glory or Grave</a>
@@ -16,11 +18,24 @@
             <li><a href="glossary.php">Glossar</a></li>
             <li><a href="map.php">Karte</a></li>
             <li class="right"><a href="#">Login</a></li>
+            <li><a href="javascript:void(0);" class="icon" onclick="mobileMenu()">&#9776;</a></li>
         </ul>
     </nav>
 
     <br>
---> 
+
+    <script>
+        function mobileMenu() {
+            var x = document.getElementByID("nav");
+            if (x.className === "nav") {
+                x.className += " responsive";
+            } else {
+                x.className = "nav";
+            }
+        }
+    </script>
+
+    <!--
 
     <div class="topnav" id="myTopnav">
     	<a onclick="toggleActive()" id="mySite" class="active" href="index.php">Startseite</a>
@@ -67,4 +82,6 @@
 
     </script>
 
-    <script>src="../Javascript/navbar.js"></script>   
+    <script>src="../Javascript/navbar.js"></script> 
+
+    -->  
