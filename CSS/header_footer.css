@@ -56,7 +56,7 @@
 }
 
 /* Responsive Design */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     .footer ul li {float: none;}
     .footer ul li.left {float: none;}
 }

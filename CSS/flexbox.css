@@ -38,7 +38,7 @@
 }
 
 /* Responsive Design: auf kleinen Bildschirmen Spalten untereinander statt nebeneinander */
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .flex-container {
         display: flex;
         flex-direction: column;

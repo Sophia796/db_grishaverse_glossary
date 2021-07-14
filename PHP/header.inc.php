@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../CSS/flexbox.css">
     <link rel="stylesheet" href="../CSS/glossary.css">
     <link rel="stylesheet" href="../CSS/form.css">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
