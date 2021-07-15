@@ -27,16 +27,12 @@ nav ul li a {
 }
     
 nav ul li a:hover {
-    background-color: black;                       /* Mouse Hover: Ändern der Farbe */
-}
-  
-nav ul li a.active {
-    background-color: #800000;                     /* aktive Seite markiert (Seite auf der man sich gerade befindet) */
+    background-color: #800000;                     /* Mouse Hover: Ändern der Farbe */
 }
 
 /* Menü-Icon (nur bei kleinen Bildschirmen) */
 nav ul li a.icon {
-    display: none;                                   /* Icon per default verstecken */
+    display: none;                                   /* Icons per default verstecken */
     float: right;
 }
 
@@ -56,7 +52,7 @@ nav .dropdown a.dropdown-item {
 }
 
 nav .dropdown a.dropdown-item:hover {
-    background-color: black;   
+    background-color: #800000;                     
     color: white;
 }
   
@@ -99,30 +95,36 @@ nav .dropdown:hover .dropdown-content{
     .dropdown a.dropdown-item {display: none;}
     .dropdown:hover .dropdown-content {display: none;}
 
-    /* Icon einblenden, das das Menü bei kleinen Bildschirmen öffnet und schließt */
-    nav ul li a.icon {
-        display: block;
-    }
+    /* Icons einblenden, die das Menü bei kleinen Bildschirmen öffnen und schließen */
+    nav ul li a.icon {display: block;}
 
-    nav ul li a.icon2 {
-        display: none;
-    }
+    nav ul li a.icon2 {display: none;}
 }
 
 
-/* Die Klasse "responsive" wird mit JavaScript hinzugefügt, wenn der User auf das Icon klickt */
+/* Die Klasse "responsive" wird mit JavaScript hinzugefügt/wieder entfernt, wenn der User auf die Icons klickt */
 /* Sie sorgt für eine vertikale Darstellung des Menüs auf kleinen Bildschirmen */
 @media screen and (max-width: 800px) {
+
+    nav.responsive ul {
+        border: 1px groove #f9f9f9;                  /* Da auf mobilen Geräten der Mouse Hover nicht funktioniert: sichtbare Grenze zwischen den Menü-Items */
+    }
 
     nav.responsive ul li {
         float: none;
         position: relative;
         display: block;
+        border-bottom: 1px groove #f9f9f9;
     }
 
     nav.responsive ul li.right {
         float: none;
         display: block;
+        border-bottom: none;
+    }
+
+    nav.responsive ul li:last-child {
+        border-bottom: none;
     }
 
     nav.responsive a {
@@ -153,6 +155,9 @@ nav .dropdown:hover .dropdown-content{
         text-align: center;
     }
 
+    /* Dropdown-Content ausblenden, da auf mobilen Geräten kein Mouse-Hover */
+    /* Sonst wird die Leiste zu groß 
+    /* Man könnte ihn aufklappbar machen, aber in dem Fall ist er nicht soo wichtig... */ 
     nav.responsive .dropdown-content {
         display: none;
     }
