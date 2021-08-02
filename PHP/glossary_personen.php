@@ -1,10 +1,21 @@
     <br>
-    <div class="search">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <input type="text" name='person' placeholder="Nach Person suchen...">
-            <button type="submit" name="submitted">Suchen</button>
-        </form>        
-    </div>
+
+    <button class="accordion">Filter</button>
+        <div class="panel">
+            <p>Filter nach Gruppe</p>
+            <p>Wenn Grisha: Filter nach Orden und Typ</p>
+            <p>Filter nach Nation</p>
+        </div>
+    <button class="accordion">Suche</button>
+        <div class="panel">
+            <div class="search">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <input type="text" name="person" placeholder="Nach Person suchen...">
+                    <button type="submit" name="submitted">Suchen</button>
+                </form>        
+            </div>
+        </div>
+
     <br>
     
     <div class="letters-bg">
@@ -91,3 +102,5 @@
             <a class="link" href="#personen_letter-Y">Y</a> <a class="link" href="#personen_letter-Z">Z</a>
         </strong>
     </div>
+
+    <script src="../Javascript/glossary_acc.js"></script>

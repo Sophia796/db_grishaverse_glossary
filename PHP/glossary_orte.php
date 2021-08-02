@@ -1,33 +1,20 @@
     
     <br>
-    <div class="search">
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <input type="text" name='ort' placeholder="Nach Ort suchen...">
-            <button type="submit" name="submitted">Suchen</button>
-        </form>
+    <button class="accordion">Filter</button>
+        <div class="panel">
+            <p>Filter nach Nation</p>
+        </div>
+    <button class="accordion">Suche</button>
+        <div class="panel">
+            <div class="search">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <input type="text" name="ort" placeholder="Nach Ort suchen...">
+                    <button type="submit" name="submitted">Suchen</button>
+                </form>        
+            </div>
+        </div>
 
-        <?php 
-        /*
-
-        if (isset($_POST["submitted"])) {
-            if (isset($_POST["ort]")) {
-                $ort = $_POST["ort"];
-            } else {
-                $ort = '';
-            }
-        }
-
-        $result = mysqli_query($conn, "SELECT schauplaetze.name, schauplaetze.beschreibung, 
-        nationen.name AS nation
-        FROM schauplaetze
-        JOIN nationen on schauplaetze.nation = nationen.ID
-        WHERE schauplaetze.name OR  schauplaetze.beschreibung OR nationen.name LIKE '%$ort%'
-        ORDER BY schauplaetze.name ASC");
-        */
-        ?>
-
-    </div>
     <br>
     
     <div class="letters-bg">
@@ -92,3 +79,5 @@
             <a class="link" href="#orte_letter-Y">Y</a> <a class="link" href="#orte_letter-Z">Z</a>
         </strong>
     </div>
+
+    <script src="../Javascript/glossary_acc.js"></script>

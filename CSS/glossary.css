@@ -30,7 +30,48 @@
     display: none;
     padding: 6px 12px;
     border-top: none;
+}
+
+  
+/* Akkordion */
+/* Akkordion-Button (klappt den Inhalt auf) */
+.accordion {
+    background-color: #eee;
+    color: #404040;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+  
+.active, .accordion:hover {
+    background-color: #ccc;
+    color: #404040;
+}
+
+.accordion:after {
+    content: "\002B";                                     /* Unicode character für + */
+    color: #404040;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+  
+.accordion .active:after {
+    content: "\2212";                                    /* Unicode character für - */
   }
+
+/* Inhalt des Akkordions (per default versteckt) */
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
   
 
 /* Glossar */
@@ -73,5 +114,7 @@
 .glossary-bg ul h3{
     margin-left: 0;
 }
+
+
 
 
