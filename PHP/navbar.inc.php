@@ -1,6 +1,6 @@
 
     <nav id="myTopnav">
-         <ul>
+        <ul>
             <li><a href="index.php">Startseite</a></li>
             <li class="dropdown">
                 <a class="dropdown-item" href="about.php">Das Grishaverse</a>
@@ -13,7 +13,7 @@
                 </div>
             </li>
             <li><a href="author.php">Leigh Bardugo</a></li>
-            <li><a href="glossary.php">Glossar</a></li>
+            <li><a href="glossary_begriffe.php">Glossar</a></li>
             <li><a href="map.php">Karte</a></li>
             <li class="right"><a href="#">Login</a></li>
             <li><a href="javascript:void(0);" class="icon" onclick="mobileMenu()"><i class="fa fa-bars"></i></a></li>

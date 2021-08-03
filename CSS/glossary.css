@@ -1,35 +1,33 @@
-/* Tabs */
-.tab {
+/* Glossar Navigation */
+.glossary-nav ul {
+    background-color: #f1f1f1;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
-    background-color: #f1f1f1;
+    transition: 0.4s;
 }
   
-.tab button {
-    background-color: #f1f1f1;
-    border-radius: 0%;
+.glossary-nav ul li {
     float: left;
-    outline: none;
-    cursor: pointer;
-    padding: 16px 16px;
-    transition: 0.2s;
-    font-size: 1.2em;
 }
   
-.tab button:hover {
+.glossary-nav ul li a {
+    display: block;
+    color: #404040;
+    text-align: center;
+    padding: 18px 16px;
+    text-decoration: none;
+}
+  
+.glossary-nav ul li a:hover {
     background-color: #404040;
     color: white
 }
   
-
-.tab button.active {
-    background-color: #404040;
-    color: white
-}
-  
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border-top: none;
+.glossary-nav .active {
+    background-color: #ccc;
+    color: #404040;
 }
 
   

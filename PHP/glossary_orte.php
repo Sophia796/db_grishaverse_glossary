@@ -1,4 +1,26 @@
     
+<?php 
+$site_name = "Grishaverse-Datenbank: Glossar";
+include ("header.inc.php"); 
+include ("navbar.inc.php");
+?>
+    <div>
+        <h2>Glossar</h2>
+    </div>
+
+    <div class="glossary-nav">
+        <ul>
+            <li><a href="glossary_begriffe.php">Begriffe</a></li>
+            <li><a href="glossary_personen.php">Personen</a></li>
+            <li><a href="glossary_grisha.php">Grisha</a></li>
+            <li><a href="glossary_orte.php" class="active">Orte</a></li>
+        </ul>
+    </div>
+
+    <?php 
+    $configs = include("config.inc.php");
+    ?>
+    
     <script>
         $(document).ready(function() {
 
@@ -34,7 +56,7 @@
                 <!-- Filter nach Nation -->
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <p><label for="nation">Nation:</label></p>
-                    <p><select class="basic-select" id="orte-select" name="nation" style="width: 100%"></select></p>       <!-- select2 mit ajax -->
+                    <p><select class="basic-select" id="orte-select" name="nation" style="width: 100%"></select></p>       <!-- select2 mit ajax -->  <!-- onchange="javascipt:submit()" falls Filter direkt angewandt werden sollen -->
                     <p><input id="submit-button" type="submit" value="Filter anwenden"/></p>
                 </form>
             </div>
@@ -87,21 +109,21 @@
 
     <?php
 
+    $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+
     if (!$filter) {
-
-        $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
-
-        foreach ($alph as $i){
+        /* Standard-Gloassar ungefiltert */
+        foreach ($alph as $i){                                                                            /* für jeden Buchstaben des Alphabets bzw. der im oben definierten Array vorkommt */
 
             $result = mysqli_query($conn, "SELECT schauplaetze.name, schauplaetze.beschreibung, 
             nationen.name AS nation
             FROM schauplaetze
             JOIN nationen on schauplaetze.nation = nationen.ID
-            WHERE schauplaetze.name LIKE '$i%'
+            WHERE schauplaetze.name LIKE '$i%'                                                           /* beginnt mit dem entsprechenden Buchstaben */
             ORDER BY schauplaetze.name ASC");
             
 
-            if (mysqli_num_rows($result) >= 1) {        
+            if (mysqli_num_rows($result) >= 1) {                                                         /* großen Buchstaben nur ausgeben, wenn es auch Glossar-Einträge dazu gibt */
                 echo "<div id='orte_letter-$i' class='big-letter'>" . $i . "</div>";
             }
 
@@ -122,13 +144,19 @@
 
     } else {
 
+        /* gewählten Filter ausgeben */
+        $filter =  mysqli_query($conn, "SELECT * FROM nationen WHERE ID = '$nationSuche'");
+        $f = $filter->fetch_assoc();
+        echo "<p>Filter: Alle Orte in " . $f['name'] . "</p>";  
+        
+
         foreach ($alph as $i){
             
             $result = mysqli_query($conn, "SELECT schauplaetze.name, schauplaetze.beschreibung, 
             nationen.name AS nation
             FROM schauplaetze
             JOIN nationen on schauplaetze.nation = nationen.ID
-            WHERE schauplaetze.nation = '$nationSuche' AND schauplaetze.name LIKE '$i%'
+            WHERE schauplaetze.nation = '$nationSuche' AND schauplaetze.name LIKE '$i%'            /* entspricht der gewählten Option und beginnt mit dem entsprechenden Buchstaben */
             ORDER BY schauplaetze.name ASC");
 
             if (mysqli_num_rows($result) >= 1) {        
@@ -149,10 +177,20 @@
     
             echo "</li></ul></div>";
         }
-
     }
-
     ?>
+    
+    <!-- Option Filter zurücksetzen -->
+    <br>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <p><input id="submit-button" type="submit" value="Filter zurücksetzen"/></p>
+    </form>
+    <?php
+        if ($_POST) {
+            $filter = false;
+        }
+    ?>
+
 
     <br>
     <div class="letters-bg">
@@ -170,3 +208,6 @@
     </div>
 
     <script src="../Javascript/glossary_acc.js"></script>
+
+
+<?php include ("footer.inc.php"); ?>

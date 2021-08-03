@@ -1,3 +1,25 @@
+<?php 
+$site_name = "Grishaverse-Datenbank: Glossar";
+include ("header.inc.php"); 
+include ("navbar.inc.php");
+?>
+    <div>
+        <h2>Glossar</h2>
+    </div>
+
+    <div class="glossary-nav">
+        <ul>
+            <li><a href="glossary_begriffe.php">Begriffe</a></li>
+            <li><a href="glossary_personen.php" class="active">Personen</a></li>
+            <li><a href="glossary_grisha.php">Grisha</a></li>
+            <li><a href="glossary_orte.php">Orte</a></li>
+        </ul>
+    </div>
+
+    <?php 
+    $configs = include("config.inc.php");
+    ?>
+    
     <br>
 
     <button class="accordion">Filter</button>
@@ -36,12 +58,9 @@
     <?php
 
 
-    $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
-"R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+    $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
     foreach ($alph as $i){
-
-        echo "<div id='personen_letter-$i' class='big-letter'>" . $i . "</div>";
 
         $result = mysqli_query($conn, "SELECT personen.vorname, personen.nachname, personen.weitere_namen, 
         personen.geschlecht, personen.beschreibung, 
@@ -54,6 +73,10 @@
         JOIN nationen on personen.nation = nationen.ID
         WHERE personen.vorname LIKE '$i%' OR personen.nachname LIKE '$i%'
         ORDER BY personen.vorname ASC");
+
+        if (mysqli_num_rows($result) >= 1) {        
+            echo "<div id='personen_letter-$i' class='big-letter'>" . $i . "</div>";
+        }
 
         echo "<div class='glossary-bg'><ul>";
 
@@ -104,3 +127,6 @@
     </div>
 
     <script src="../Javascript/glossary_acc.js"></script>
+
+
+<?php include ("footer.inc.php"); ?>

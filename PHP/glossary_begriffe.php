@@ -1,3 +1,25 @@
+<?php 
+$site_name = "Grishaverse-Datenbank: Glossar";
+include ("header.inc.php"); 
+include ("navbar.inc.php");
+?>
+    <div>
+        <h2>Glossar</h2>
+    </div>
+
+    <div class="glossary-nav">
+        <ul>
+            <li><a href="glossary_begriffe.php" class="active">Begriffe</a></li>
+            <li><a href="glossary_personen.php">Personen</a></li>
+            <li><a href="glossary_grisha.php">Grisha</a></li>
+            <li><a href="glossary_orte.php">Orte</a></li>
+        </ul>
+    </div>
+
+    <?php 
+    $configs = include("config.inc.php");
+    ?>
+    
     <br>
 
     <button class="accordion">Suche</button>
@@ -29,17 +51,18 @@
 
     <?php
 
-    $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
-"R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+    $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
     foreach ($alph as $i){
-
-        echo "<div id='begriffe_letter-$i' class='big-letter'>" . $i . "</div>";
 
         $result = mysqli_query($conn, "SELECT begriffe.name, begriffe.beschreibung
         FROM begriffe
         WHERE begriffe.name LIKE '$i%'
         ORDER BY begriffe.name ASC");
+
+        if (mysqli_num_rows($result) >= 1) {        
+            echo "<div id='begriffe_letter-$i' class='big-letter'>" . $i . "</div>";
+        }
 
         echo "<div class='glossary-bg'><ul>";
 
@@ -69,3 +92,6 @@
     </div>
 
     <script src="../Javascript/glossary_acc.js"></script>
+
+
+<?php include ("footer.inc.php"); ?>
