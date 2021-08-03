@@ -27,3 +27,28 @@ function sucheverarbeiten($search, $result_page){
         ORDER BY schauplaetze.name ASC");
         -->
 
+
+        <!--
+        $result = mysqli_query($conn, "SELECT schauplaetze.name, schauplaetze.beschreibung, 
+            nationen.name AS nation
+            FROM schauplaetze
+            JOIN nationen on schauplaetze.nation = nationen.ID
+            WHERE schauplaetze.nation = '$nationSuche'
+            
+            ORDER BY schauplaetze.name ASC");
+
+            echo "<div class='glossary-bg'><ul>";
+    
+            while ($j = mysqli_fetch_assoc($result)) {
+                echo "<li><h3>" . $j["name"] . "</h3>";
+
+                if ($j["beschreibung"]) {
+                    echo $j["beschreibung"] . "<br>";
+                }
+
+                echo "Nation: " . $j["nation"] . "<br><br>";
+            }
+
+            echo "</li></ul></div>";
+
+        -->
