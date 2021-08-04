@@ -50,11 +50,12 @@ include ("navbar.inc.php");
     <!-- Filter -->
     <button class="accordion">Filter</button>
         <div class="panel">
+            <!-- Filter nach Gruppe -->
             <div class="search-wrap">
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <!-- Filter nach Gruppe -->
-                    <p><label for="gruppe">Gruppe:</label>
-                        <select class="basic-select" id="gruppe-select" name="gruppe" style="width: 100%">                    <!-- select2 dropdown hard gecodet -->
+                    <p>
+                        <label for="gruppe"></label>
+                        <select class="basic-select" id="gruppe-select" name="gruppe" style="width: 70%">                     <!-- select2 dropdown hard gecodet -->
                             <option value="-1"></option>                                                                      <!-- leerer option-Tag für Platzhalter (erste Option wird vom Browser per default angezeigt/gewählt) -->
                             <option value="1">Black Tips</option>                                                               
                             <option value="2">Dime-Lions</option>
@@ -65,10 +66,17 @@ include ("navbar.inc.php");
                             <option value="6">Krähen</option>
                             <option value="7">Soldat Sol</option>
                         </select>
+                        <input id="submit-gruppe" type="submit" name="submit-gruppe" value="Filter anwenden"/>
                     </p>
-                    <!-- Filter nach Grisha (Orden und Typ) -->
-                    <p><label for="grisha">Grisha:</label>
-                        <select class="basic-select" id="grisha-select" name="grisha" style="width: 100%">
+                </form>
+            </div>
+
+            <!-- Filter nach Grisha (Orden und Typ) -->
+            <div class="search-wrap">
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <p>
+                        <label for="grisha"></label>
+                        <select class="basic-select" id="grisha-select" name="grisha" style="width: 70%">
                             <option value="-1"></option>
                             <optgroup value="1" label="Korporalki">                                                            <!-- select2 dropdown option groups -->
                                 <option value="1">Entherzer</option>
@@ -87,10 +95,17 @@ include ("navbar.inc.php");
                                 <option value="7">Alkemi</option>
                             <optgroup>
                         </select>
+                        <input id="submit-grisha" type="submit" value="Filter anwenden"/>
                     </p>
-                    <!-- Filter nach Nation -->
-                    <p><label for="nation">Nation:</label>
-                        <select class="basic-select" id="orte-select" name="orte" style="width: 100%">
+                </form>
+            </div>
+
+            <!-- Filter nach Nation -->
+            <div class="search-wrap">  
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <p>
+                        <label for="nation"></label>
+                        <select class="basic-select" id="orte-select" name="orte" style="width: 70%">
                             <option value="-1"></option>                 
                             <option value="1">Kerch</option>                                                               
                             <option value="2">Novyi Zem</option>
@@ -100,40 +115,51 @@ include ("navbar.inc.php");
                             <option value="6">Wandernde Insel</option>
                             <option value="7">Fjerda</option>
                         </select>
-                    </p>      
-                    <p><input id="submit-button" type="submit" value="Filter anwenden"/></p>
+                        <input id="submit-nation" type="submit" value="Filter anwenden"/>
+                    </p>
                 </form>
             </div>
         </div>
+
+        <?php
+            /* Filter verarbeiten */
+            $filterGruppe = false;
+            $filterGrisha = false;
+            $filterNation = false;
+
+            if ($_POST["submit-gruppe"]) {
+
+                $suchKriterienStr = "";
+
+                if (is_null($_REQUEST["gruppe"])) {
+                    $gruppeSuche = "";
+                } else {
+                    $gruppeSuche = $_REQUEST["gruppe"];
+                }
+                $filterGruppe = true;
+
+            } elseif ($_POST["submit-grisha"]) {
+                $suchKriterienStr = "";
+
+                if (is_null($_REQUEST["grisha"])) {
+                    $grishaSuche = "";
+                } else {
+                    $grishaSuche = $_REQUEST["grisha"];
+                }
+                $filterGrisha = true;
+
+            } elseif ($_POST["submit-nation"]) {
+                $suchKriterienStr = "";
+
+                if (is_null($_REQUEST["orte"])) {
+                    $nationSuche = "";
+                } else {
+                    $nationSuche = $_REQUEST["orte"];
+                }
+                $filterNation = true;
+            } 
+            ?>
     
-    <?php
-    /* Filter verarbeiten */
-    $filter = false;
-
-        if ($_POST) {
-            $suchKriterienStr = "";
-
-            if (is_null($_REQUEST["gruppe"])) {
-                $gruppeSuche = "";
-            } else {
-                $gruppeSuche = $_REQUEST["gruppe"];
-            }
-
-            if (is_null($_REQUEST["grisha"])) {
-                $grishaSuche = "";
-            } else {
-                $grishaSuche = $_REQUEST["grisha"];
-            }
-
-            if (is_null($_REQUEST["orte"])) {
-                $nationSuche = "";
-            } else {
-                $nationSuche = $_REQUEST["orte"];
-            }
-
-            $filter = true;
-        }
-    ?>
     
     <!-- Suche -->
     <button class="accordion">Suche</button>
@@ -146,6 +172,7 @@ include ("navbar.inc.php");
             </div>
         </div>
     <br>
+
 
     <!-- Glossar -->      
     <div class="letters-bg">
@@ -165,11 +192,11 @@ include ("navbar.inc.php");
 
     <?php
 
-
     $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
-    if (!$filter) {
-        /* Standard-Gloassar ungefiltert */
+    /* Standard-Gloassar ungefiltert */
+    if (!$filterGruppe and !$filterGrisha and !$filterNation) {
+        
         foreach ($alph as $i){
 
             $result = mysqli_query($conn, "SELECT personen.vorname, personen.nachname, personen.weitere_namen, 
@@ -212,17 +239,15 @@ include ("navbar.inc.php");
             echo "</ul></div>";
         }
 
-    
-    } else {
+    /* gefiltert nach Gruppe*/
+    } elseif ($filterGruppe) {
+        
+        /* Filter ausgeben */
+        $filt_gruppe = mysqli_query($conn, "SELECT * FROM gruppen WHERE ID = '$gruppeSuche'"); 
+        $f_gruppe = $filt_gruppe->fetch_assoc();
+        echo "<div class='glossary-res'><h3>Filter: Alle Personen der Gruppe " .  $f_gruppe['name']  . "</h3></div><br>";  
 
-        /* gefiltertes Glossar */
-        /* ausgewählte Filter ausgeben */
-        echo "<div class='glossary-res'><h3>Filter:</h3><ul>";
-        if ($gruppeSuche >= 1){
-            $filt_gruppe = mysqli_query($conn, "SELECT * FROM gruppen WHERE ID = '$gruppeSuche'");
-            $f_gruppe = $filt_gruppe->fetch_assoc();
-            echo "<li>Alle Personen der Gruppe " .  $f_gruppe['name']  . "</li>";
-        }
+        /*
         if ($grishaSuche >= 1){
             $filt_grisha = mysqli_query($conn, "SELECT * FROM grisha WHERE ID = '$grishaSuche'");
             $f_grisha = $filt_grisha->fetch_assoc();
@@ -234,11 +259,10 @@ include ("navbar.inc.php");
             echo "<li>Alle Personen aus " .  $f_nation['name']  . "</li>";  
         }
         echo "</ul></div><br>";
-
+        */
 
         foreach ($alph as $i){
 
-            /* Filter nach Nation */
             $result = mysqli_query($conn, "SELECT personen.vorname, personen.nachname, personen.weitere_namen, 
             personen.geschlecht, personen.beschreibung, 
             gruppen.name as gruppe, 
@@ -248,8 +272,7 @@ include ("navbar.inc.php");
             JOIN gruppen on personen.gruppe = gruppen.ID
             JOIN grisha on personen.grisha_typ = grisha.ID
             JOIN nationen on personen.nation = nationen.ID
-            WHERE personen.nation = '$nationSuche'
-            AND personen.vorname LIKE '$i%' 
+            WHERE personen.gruppe = '$gruppeSuche' AND personen.vorname LIKE '$i%' 
             ORDER BY personen.vorname ASC");
 
 

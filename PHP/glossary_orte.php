@@ -58,7 +58,7 @@ include ("navbar.inc.php");
                 <!-- Filter nach Nation -->
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <p>
-                        <label for="nation">Nation:</label>
+                        <label for="nation"></label>
                         <select class="basic-select" id="orte-select" name="nation" style="width: 100%"></select>                 <!-- select2 mit ajax -->  <!-- onchange="javascipt:submit()" falls Filter direkt angewandt werden sollen -->
                     </p>
                     <p><input id="submit-button" type="submit" value="Filter anwenden"/></p>
@@ -115,8 +115,9 @@ include ("navbar.inc.php");
 
     $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
+    /* Standard-Gloassar ungefiltert */
     if (!$filter) {
-        /* Standard-Gloassar ungefiltert */
+        
         foreach ($alph as $i){                                                                            /* für jeden Buchstaben des Alphabets bzw. der im oben definierten Array vorkommt */
 
             $result = mysqli_query($conn, "SELECT schauplaetze.name, schauplaetze.beschreibung, 
@@ -145,7 +146,8 @@ include ("navbar.inc.php");
     
             echo "</li></ul></div>";
         }
-
+    
+    /* Gefiltert */
     } else {
 
         /* gewählten Filter ausgeben */
