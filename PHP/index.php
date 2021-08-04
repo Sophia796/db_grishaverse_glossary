@@ -27,7 +27,7 @@ include ("navbar.inc.php");
         </div>
         <div class="mySlides fade">
             <div class="numbertext">3 / 4</div>
-            <a href="glossary.php"><img src="../images/images/slideshow/hirsch.jpg" style="width:100%"></a>
+            <a href="glossary_begriffe.php"><img src="../images/images/slideshow/hirsch.jpg" style="width:100%"></a>
             <div class="text">Glossar</div>
         </div>
 

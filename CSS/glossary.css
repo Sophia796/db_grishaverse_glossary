@@ -113,6 +113,17 @@
     margin-left: 0;
 }
 
+/* Sonstige Anzeigen */
+.glossary-res{
+    margin-left: 32px;
+}
+
+.glossary-res #submit-button{
+    margin-left: 16px;
+}
+
+
+
 
 
 

@@ -19,15 +19,123 @@ include ("navbar.inc.php");
     <?php 
     $configs = include("config.inc.php");
     ?>
-    
-    <br>
 
+    <script>
+        $(document).ready(function() {
+            // select2 hard gecodet
+            $('#gruppe-select').select2({
+                placeholder: {
+                    id: '-1',
+                    text: 'Gruppe wählen'                  // Platzhalter
+                }
+            }); 
+            $('#grisha-select').select2({
+                placeholder: {
+                    id: '-1',
+                    text: 'Grishatyp wählen'
+                }
+            }); 
+            $('#orte-select').select2({
+                placeholder: {
+                    id: '-1',
+                    text: 'Nation wählen'
+                }
+            }); 
+        });
+    </script>
+
+
+    <!-- Filter und Suche zum Aufklappen (mit Akkordion) -->
+    <br>
+    <!-- Filter -->
     <button class="accordion">Filter</button>
         <div class="panel">
-            <p>Filter nach Gruppe</p>
-            <p>Wenn Grisha: Filter nach Orden und Typ</p>
-            <p>Filter nach Nation</p>
+            <div class="search-wrap">
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <!-- Filter nach Gruppe -->
+                    <p><label for="gruppe">Gruppe:</label>
+                        <select class="basic-select" id="gruppe-select" name="gruppe" style="width: 100%">                    <!-- select2 dropdown hard gecodet -->
+                            <option value="-1"></option>                                                                      <!-- leerer option-Tag für Platzhalter (erste Option wird vom Browser per default angezeigt/gewählt) -->
+                            <option value="1">Black Tips</option>                                                               
+                            <option value="2">Dime-Lions</option>
+                            <option value="3">Dregs</option>
+                            <option value="4">Drüskelle</option>
+                            <option value="5">Grisha</option>
+                            <option value="8">Krämer</option>
+                            <option value="6">Krähen</option>
+                            <option value="7">Soldat Sol</option>
+                        </select>
+                    </p>
+                    <!-- Filter nach Grisha (Orden und Typ) -->
+                    <p><label for="grisha">Grisha:</label>
+                        <select class="basic-select" id="grisha-select" name="grisha" style="width: 100%">
+                            <option value="-1"></option>
+                            <optgroup value="1" label="Korporalki">                                                            <!-- select2 dropdown option groups -->
+                                <option value="1">Entherzer</option>
+                                <option value="2">Heiler</option>
+                                <option value="10">Bildner</option>
+                            <optgroup>
+                            <optgroup value="2" label="Ätheralki">
+                                <option value="3">Stürmer</option>
+                                <option value="4">Fluter</option>
+                                <option value="5">Inferni</option>
+                                <option value="8">Dunkler</option>
+                                <option value="9">Sonnenkrieger</option>
+                            <optgroup>
+                            <optgroup value="3" label="Materialki">
+                                <option value="6">Durast</option>
+                                <option value="7">Alkemi</option>
+                            <optgroup>
+                        </select>
+                    </p>
+                    <!-- Filter nach Nation -->
+                    <p><label for="nation">Nation:</label>
+                        <select class="basic-select" id="orte-select" name="orte" style="width: 100%">
+                            <option value="-1"></option>                 
+                            <option value="1">Kerch</option>                                                               
+                            <option value="2">Novyi Zem</option>
+                            <option value="3">Ravka</option>
+                            <option value="4">Suli</option>
+                            <option value="5">Shu-Han</option>
+                            <option value="6">Wandernde Insel</option>
+                            <option value="7">Fjerda</option>
+                        </select>
+                    </p>      
+                    <p><input id="submit-button" type="submit" value="Filter anwenden"/></p>
+                </form>
+            </div>
         </div>
+    
+    <?php
+    /* Filter verarbeiten */
+    $filter = false;
+
+        if ($_POST) {
+            $suchKriterienStr = "";
+
+            if (is_null($_REQUEST["gruppe"])) {
+                $gruppeSuche = "";
+            } else {
+                $gruppeSuche = $_REQUEST["gruppe"];
+            }
+
+            if (is_null($_REQUEST["grisha"])) {
+                $grishaSuche = "";
+            } else {
+                $grishaSuche = $_REQUEST["grisha"];
+            }
+
+            if (is_null($_REQUEST["orte"])) {
+                $nationSuche = "";
+            } else {
+                $nationSuche = $_REQUEST["orte"];
+            }
+
+            $filter = true;
+        }
+    ?>
+    
+    <!-- Suche -->
     <button class="accordion">Suche</button>
         <div class="panel">
             <div class="search">
@@ -37,9 +145,9 @@ include ("navbar.inc.php");
                 </form>        
             </div>
         </div>
-
     <br>
-    
+
+    <!-- Glossar -->      
     <div class="letters-bg">
         <strong>
             <a class="link" href="#personen_letter-A">A</a> <a class="link" href="#personen_letter-B">B</a> <a class="link" href="#personen_letter-C">C</a> 
@@ -60,56 +168,135 @@ include ("navbar.inc.php");
 
     $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
-    foreach ($alph as $i){
+    if (!$filter) {
+        /* Standard-Gloassar ungefiltert */
+        foreach ($alph as $i){
 
-        $result = mysqli_query($conn, "SELECT personen.vorname, personen.nachname, personen.weitere_namen, 
-        personen.geschlecht, personen.beschreibung, 
-        gruppen.name as gruppe, 
-        grisha.name as grisha,
-        nationen.name as nation
-        FROM personen
-        JOIN gruppen on personen.gruppe = gruppen.ID
-        JOIN grisha on personen.grisha_typ = grisha.ID
-        JOIN nationen on personen.nation = nationen.ID
-        WHERE personen.vorname LIKE '$i%' OR personen.nachname LIKE '$i%'
-        ORDER BY personen.vorname ASC");
+            $result = mysqli_query($conn, "SELECT personen.vorname, personen.nachname, personen.weitere_namen, 
+            personen.geschlecht, personen.gruppe, personen.beschreibung, 
+            gruppen.name as gruppe, 
+            grisha.name as grisha,
+            nationen.name as nation
+            FROM personen
+            JOIN gruppen on personen.gruppe = gruppen.ID
+            JOIN grisha on personen.grisha_typ = grisha.ID
+            JOIN nationen on personen.nation = nationen.ID
+            WHERE personen.vorname LIKE '$i%' OR personen.nachname LIKE '$i%'
+            ORDER BY personen.vorname ASC");
 
-        if (mysqli_num_rows($result) >= 1) {        
-            echo "<div id='personen_letter-$i' class='big-letter'>" . $i . "</div>";
+            if (mysqli_num_rows($result) >= 1) {        
+                echo "<div id='personen_letter-$i' class='big-letter'>" . $i . "</div>";
+            }
+
+            echo "<div class='glossary-bg'><ul>";
+
+            while ($j = mysqli_fetch_assoc($result)) {
+                echo "<li><h3>" . $j["vorname"] . " " . $j["nachname"] . "</h3><uo>";
+                if ($j["weitere_namen"]) {
+                    echo "<li>Auch genannt: " . $j["weitere_namen"] . "</li>";
+                }
+                if ($j["beschreibung"]) {
+                    echo "<li>". $j["beschreibung"] . "</li>";
+                }
+                if ($j["gruppe"]) {
+                    echo "<li>Gruppe: " . $j["gruppe"] . "</li>";
+                }
+                if ($j["grisha"]) {
+                    echo "<li>Grishatyp: " . $j["grisha"] . "</li>";
+                } 
+                if ($j["nation"]) {
+                    echo "<li>Nation: " . $j["nation"] . "</li>";
+                } 
+                echo "</uo></li><br>";
+            }
+            echo "</ul></div>";
         }
 
-        echo "<div class='glossary-bg'><ul>";
+    
+    } else {
 
-        while ($j = mysqli_fetch_assoc($result)) {
-
-            echo "<li><h3>" . $j["vorname"] . " " . $j["nachname"] . "</h3><uo>";
-
-            if ($j["weitere_namen"]) {
-                echo "<li>Auch genannt: " . $j["weitere_namen"] . "</li>";
-            }
-            
-            if ($j["beschreibung"]) {
-                echo "<li>". $j["beschreibung"] . "</li>";
-            }
-
-            if ($j["gruppe"]) {
-                echo "<li>Gruppe: " . $j["gruppe"] . "</li>";
-            }
-
-            if ($j["grisha"]) {
-                echo "<li>Grishatyp: " . $j["grisha"] . "</li>";
-            } 
-
-            if ($j["nation"]) {
-                echo "<li>Nation: " . $j["nation"] . "</li>";
-            } 
-
-            echo "</uo></li><br>";
+        /* gefiltertes Glossar */
+        /* ausgewählte Filter ausgeben */
+        echo "<div class='glossary-res'><h3>Filter:</h3><ul>";
+        if ($gruppeSuche >= 1){
+            $filt_gruppe = mysqli_query($conn, "SELECT * FROM gruppen WHERE ID = '$gruppeSuche'");
+            $f_gruppe = $filt_gruppe->fetch_assoc();
+            echo "<li>Alle Personen der Gruppe " .  $f_gruppe['name']  . "</li>";
         }
-        echo "</ul></div>";
+        if ($grishaSuche >= 1){
+            $filt_grisha = mysqli_query($conn, "SELECT * FROM grisha WHERE ID = '$grishaSuche'");
+            $f_grisha = $filt_grisha->fetch_assoc();
+            echo "<li>Alle Grisha des Typs " .   $f_grisha['name']  . "</li>";
+        }
+        if ($nationSuche >= 1){
+            $filt_nation = mysqli_query($conn, "SELECT * FROM nationen WHERE ID = '$nationSuche'");
+            $f_nation = $filt_nation->fetch_assoc();
+            echo "<li>Alle Personen aus " .  $f_nation['name']  . "</li>";  
+        }
+        echo "</ul></div><br>";
+
+
+        foreach ($alph as $i){
+
+            /* Filter nach Nation */
+            $result = mysqli_query($conn, "SELECT personen.vorname, personen.nachname, personen.weitere_namen, 
+            personen.geschlecht, personen.beschreibung, 
+            gruppen.name as gruppe, 
+            grisha.name as grisha,
+            nationen.name as nation
+            FROM personen
+            JOIN gruppen on personen.gruppe = gruppen.ID
+            JOIN grisha on personen.grisha_typ = grisha.ID
+            JOIN nationen on personen.nation = nationen.ID
+            WHERE personen.nation = '$nationSuche'
+            AND personen.vorname LIKE '$i%' 
+            ORDER BY personen.vorname ASC");
+
+
+            if (mysqli_num_rows($result) >= 1) {        
+                echo "<div id='orte_letter-$i' class='big-letter'>" . $i . "</div>";
+            }
+    
+            echo "<div class='glossary-bg'><ul>";
+
+            while ($j = mysqli_fetch_assoc($result)) {
+                echo "<li><h3>" . $j["vorname"] . " " . $j["nachname"] . "</h3><uo>";
+                if ($j["weitere_namen"]) {
+                    echo "<li>Auch genannt: " . $j["weitere_namen"] . "</li>";
+                }
+                if ($j["beschreibung"]) {
+                    echo "<li>". $j["beschreibung"] . "</li>";
+                }
+                if ($j["gruppe"]) {
+                    echo "<li>Gruppe: " . $j["gruppe"] . "</li>";
+                }
+                if ($j["grisha"]) {
+                    echo "<li>Grishatyp: " . $j["grisha"] . "</li>";
+                } 
+                if ($j["nation"]) {
+                    echo "<li>Nation: " . $j["nation"] . "</li>";
+                } 
+                echo "</uo></li><br>";
+            }
+            echo "</ul></div>";
+        }
     }
-
     ?>
+
+
+    <!-- Option Filter zurücksetzen -->
+    <br>
+    <div class="glossary-res">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <input id="submit-button" type="submit" value="Filter zurücksetzen"/>
+        </form>
+    </div>
+    <?php
+        if ($_POST) {
+            $filter = false;
+        }
+    ?>
+
 
     <br>
     <div class="letters-bg">

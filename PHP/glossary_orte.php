@@ -26,10 +26,12 @@ include ("navbar.inc.php");
 
             // select2 mit ajax
             $('#orte-select').select2({
+                placeholder: "Nation wählen",                               // Platzhalter
+                allowClear: true,
                 ajax: {
                     url: "filter_orte.php",
                     type: "post",
-                    dataType: 'json',
+                    dataType: "json",
                     data: function(params) {
                         return {
                             searchTerm: params.term
@@ -55,8 +57,10 @@ include ("navbar.inc.php");
             <div class="search-wrap">
                 <!-- Filter nach Nation -->
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <p><label for="nation">Nation:</label></p>
-                    <p><select class="basic-select" id="orte-select" name="nation" style="width: 100%"></select></p>       <!-- select2 mit ajax -->  <!-- onchange="javascipt:submit()" falls Filter direkt angewandt werden sollen -->
+                    <p>
+                        <label for="nation">Nation:</label>
+                        <select class="basic-select" id="orte-select" name="nation" style="width: 100%"></select>                 <!-- select2 mit ajax -->  <!-- onchange="javascipt:submit()" falls Filter direkt angewandt werden sollen -->
+                    </p>
                     <p><input id="submit-button" type="submit" value="Filter anwenden"/></p>
                 </form>
             </div>
@@ -145,9 +149,9 @@ include ("navbar.inc.php");
     } else {
 
         /* gewählten Filter ausgeben */
-        $filter =  mysqli_query($conn, "SELECT * FROM nationen WHERE ID = '$nationSuche'");
-        $f = $filter->fetch_assoc();
-        echo "<p>Filter: Alle Orte in " . $f['name'] . "</p>";  
+        $filt =  mysqli_query($conn, "SELECT * FROM nationen WHERE ID = '$nationSuche'");
+        $f = $filt->fetch_assoc();
+        echo "<div class='glossary-res'><h3>Filter: Alle Orte in " . $f['name'] . "</h3></div><br>";  
         
 
         foreach ($alph as $i){
@@ -182,9 +186,11 @@ include ("navbar.inc.php");
     
     <!-- Option Filter zurücksetzen -->
     <br>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <p><input id="submit-button" type="submit" value="Filter zurücksetzen"/></p>
-    </form>
+    <div class="glossary-res">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <input id="submit-button" type="submit" value="Filter zurücksetzen"/>
+        </form>
+    </div>
     <?php
         if ($_POST) {
             $filter = false;
