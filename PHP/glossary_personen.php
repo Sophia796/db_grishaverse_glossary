@@ -17,6 +17,7 @@ $configs = include("config.inc.php");
             <li><a href="glossary_grisha.php">Grisha</a></li>
         </ul>
     </div>
+    <br>
 
 
     <script>
@@ -120,7 +121,7 @@ $configs = include("config.inc.php");
         </div>
 
         <?php
-            /* Filter verarbeiten */
+            /* Filter verarbeiten 
             $filterGruppe = false;
             $filterGrisha = false;
             $filterNation = false;
@@ -156,16 +157,19 @@ $configs = include("config.inc.php");
                 }
                 $filterNation = true;
             } 
+            */
             ?>
     
-    
+
     <!-- Suche -->
     <button class="accordion">Suche</button>
         <div class="panel">
             <div class="search">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                    <input type="text" name="person" placeholder="Nach Person suchen...">
-                    <button type="submit" name="submitted">Suchen</button>
+                <form action="glossary_personen_suche.php" method="post">
+                    <p>
+                        <input type="text" name="suchperson" placeholder="Nach Person suchen..." style="width: 100%"></input>
+                        <input type="submit" name="search" value="Suchen"></input>
+                    </p>
                 </form>        
             </div>
         </div>
@@ -193,7 +197,6 @@ $configs = include("config.inc.php");
     $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
     /* Standard-Gloassar ungefiltert */
-    if (!$filterGruppe and !$filterGrisha and !$filterNation) {
         
         foreach ($alph as $i){
 
@@ -237,15 +240,13 @@ $configs = include("config.inc.php");
             echo "</ul></div>";
         }
 
-    /* gefiltert nach Gruppe*/
+    /* gefiltert nach Gruppe
     } elseif ($filterGruppe) {
         
-        /* Filter ausgeben */
         $filt_gruppe = mysqli_query($conn, "SELECT * FROM gruppen WHERE ID = '$gruppeSuche'"); 
         $f_gruppe = $filt_gruppe->fetch_assoc();
         echo "<div class='glossary-res'><h3>Filter: Alle Personen der Gruppe " .  $f_gruppe['name']  . "</h3></div><br>";  
 
-        /*
         if ($grishaSuche >= 1){
             $filt_grisha = mysqli_query($conn, "SELECT * FROM grisha WHERE ID = '$grishaSuche'");
             $f_grisha = $filt_grisha->fetch_assoc();
@@ -257,8 +258,9 @@ $configs = include("config.inc.php");
             echo "<li>Alle Personen aus " .  $f_nation['name']  . "</li>";  
         }
         echo "</ul></div><br>";
-        */
+        
 
+        
         foreach ($alph as $i){
 
             $result = mysqli_query($conn, "SELECT personen.vorname, personen.nachname, personen.weitere_namen, 
@@ -301,23 +303,9 @@ $configs = include("config.inc.php");
             }
             echo "</ul></div>";
         }
-    }
+        */
+
     ?>
-
-
-    <!-- Option Filter zurücksetzen -->
-    <br>
-    <div class="glossary-res">
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            <input id="submit-button" type="submit" value="Filter zurücksetzen"/>
-        </form>
-    </div>
-    <?php
-        if ($_POST) {
-            $filter = false;
-        }
-    ?>
-
 
     <br>
     <div class="letters-bg">

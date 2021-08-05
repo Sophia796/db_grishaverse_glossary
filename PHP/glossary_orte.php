@@ -55,11 +55,11 @@ $configs = include("config.inc.php");
         <div class="panel">
             <div class="search-wrap">
                 <!-- Filter nach Nation -->
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <form method="post" action="glossary_orte_filter.php">                                
                     <p>
                         <label for="nation"></label>
                         <!-- select2 mit ajax -->  
-                        <select class="basic-select" id="orte-select" name="nation" style="width: 100%"></select>                 <!-- onchange="javascipt:submit()" falls Filter direkt angewandt werden sollen (ohne submit-Button klicken) -->
+                        <select class="basic-select" id="orte-select" name="nation" style="width: 100%"></select>                 
                     </p>
                     <p><input id="submit-button" name="filter" type="submit" value="Filter anwenden"/></p>
                 </form>
@@ -70,7 +70,7 @@ $configs = include("config.inc.php");
     <button class="accordion">Suche</button>
         <div class="panel">
             <div class="search">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <form action="glossary_orte_suche.php" method="post">                                                             
                     <p>
                         <input type="text" name="suchort" placeholder="Nach Ort suchen..." style="width: 100%"></input>
                         <input type="submit" name="search" value="Suchen"></input>
@@ -80,36 +80,6 @@ $configs = include("config.inc.php");
         </div>
     <br>
 
-    <!-- Filter und Suche verarbeiten -->
-    <?php
-        $filter = false;                                              // Variablen sind per default false --> Anzeigen des Standard-Glossars
-        $suche = false;   
-
-        if ($_POST) {
-            $suchKriterienStr = "";
-
-            if (is_null($_REQUEST["nation"])) {
-                $nationSuche = "";
-                $filter = false;
-            } else {
-                $nationSuche = $_REQUEST["nation"];
-                $filter = true;                                      // wenn der Button geklickt wird, wird die Variable auf true gesetzt und die Glossar-Anzeige wird modifiziert (statt dem Standard-Glossar wird das gefilterte angezeigt)
-            }
-        
-        } elseif ($_POST) {
-
-            $suchKriterienStr = "";
-
-            if (is_null($_REQUEST["suchort"])) {
-                $ortSuche = "";
-                $suche = false;
-            } else {
-                $ortSuche = $_REQUEST["suchort"];
-                $suche = true;   
-            }                                                
-        } 
-    ?>
-
 
     <!-- Glossar -->   
     <?php
@@ -118,9 +88,7 @@ $configs = include("config.inc.php");
     $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
     /* Standard-Gloassar (alle Orte) */
-    if (!$filter && !$suche) {
-
-        /* Buchstaben-Navigation mit Links zu den jeweiligen Glossar-Einträgen */
+    /* Buchstaben-Navigation mit Links zu den jeweiligen Glossar-Einträgen */
         echo        
         "<div class='letters-bg'>
             <strong>
@@ -184,58 +152,6 @@ $configs = include("config.inc.php");
             </strong>
         </div>
         <br>";
-
-    
-    /* Gefiltert */
-    } else {
-
-        /* gewählten Filter ausgeben */
-        $filt =  mysqli_query($conn, "SELECT * FROM nationen WHERE ID = '$nationSuche'");
-        $f = $filt->fetch_assoc();
-        echo "<div class='glossary-res'><h3>Filter: Alle Orte in " . $f['name'] . "</h3></div><br>";  
-        
-
-        foreach ($alph as $i){
-            
-            $result = mysqli_query($conn, "SELECT schauplaetze.name, schauplaetze.beschreibung, 
-            nationen.name AS nation
-            FROM schauplaetze
-            JOIN nationen on schauplaetze.nation = nationen.ID
-            WHERE schauplaetze.nation = '$nationSuche' AND schauplaetze.name LIKE '$i%'            /* entspricht der gewählten Option und beginnt mit dem entsprechenden Buchstaben */
-            ORDER BY schauplaetze.name ASC");
-
-            if (mysqli_num_rows($result) >= 1) {        
-                echo "<div id='orte_letter-$i' class='big-letter'>" . $i . "</div>";
-            }
-    
-            echo "<div class='glossary-bg'><ul>";
-    
-            while ($j = mysqli_fetch_assoc($result)) {
-                echo "<li><h3>" . $j["name"] . "</h3>";
-    
-                if ($j["beschreibung"]) {
-                    echo $j["beschreibung"] . "<br>";
-                }
-    
-                echo "Nation: " . $j["nation"] . "<br><br>";
-            }
-    
-            echo "</li></ul></div>";
-        }
-
-        
-        /* Option Filter zurücksetzen */
-        echo 
-        "<br>
-        <div class='glossary-res'>
-            <form method='post' action=" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">
-                <input id='submit-button' type='submit' value='Filter zurücksetzen'/>
-            </form>
-        </div>";
-        if ($_POST) {
-            $filter = false;                       // durch Klick auf den Button wird die Variable wieder aus false gesetzt, die Seite neu geladen und das Standard-Glossar angezeigt
-        }
-    }
     ?>
 
 

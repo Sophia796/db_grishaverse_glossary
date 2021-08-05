@@ -23,7 +23,7 @@ $configs = include("config.inc.php");
     <button class="accordion">Suche</button>
         <div class="panel">
             <div class="search">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <form action="glossary_begriffe_suche.php" method="post">
                     <p>
                         <input type="text" name="suchbegriff" placeholder="Nach Begriff suchen..." style="width: 100%"></input>
                         <input type="submit" name="search" value="Suchen"></input>
@@ -33,22 +33,6 @@ $configs = include("config.inc.php");
         </div>
     <br>
 
-    <!-- Suche verarbeiten -->
-    <?php
-    $suche = false;                                                           // Variable ist per default false --> Anzeigen des Standard-Glossars
-
-        if ($_POST) {
-            $suchKriterienStr = "";
-
-            if (is_null($_REQUEST["suchbegriff"])) {
-                $begriffSuche = "";
-            } else {
-                $begriffSuche = $_REQUEST["suchbegriff"];
-            }
-            $suche = true;                                                   // wenn der Button geklickt wird, wird die Variable auf true gesetzt und die Glossar-Anzeige wird modifiziert (statt dem Standard-Glossar wird das Suchergebnis angezeigt)
-        }
-    ?>
-
 
     <!-- Glossar -->    
     <?php
@@ -57,8 +41,6 @@ $configs = include("config.inc.php");
     $alph = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");                     
 
     /* Standard-Gloassar (alle Begriffe) */
-    if (!$suche) {
-
         /* Buchstaben-Navigation mit Links zu den jeweiligen Glossar-Einträgen */
         echo 
         "<div class='letters-bg'>
@@ -115,54 +97,6 @@ $configs = include("config.inc.php");
         </strong>
         </div>
         <br>";
-
-
-    /* Suchergebnisse */
-    } else {
-
-        /* Überprüfen, ob es Ergebnisse zur Suche gibt (wenn nicht: entsprechenden Text ausgeben; wenn ja: Suchstring und Ergebnis ausgeben) */
-        $res = mysqli_query($conn, "SELECT begriffe.name, begriffe.beschreibung FROM begriffe WHERE begriffe.name = '$begriffSuche'");
-        if (mysqli_num_rows($res) < 1) {
-            echo "<div class='glossary-res'><h3>Keine Ergebnisse für  " . $begriffSuche . " gefunden.</h3></div><br>";
-        } else {
-            echo "<div class='glossary-res'><h3>Suche nach " . $begriffSuche . "</h3></div><br>";              
-
-            foreach ($alph as $i){
-
-                $result = mysqli_query($conn, "SELECT begriffe.name, begriffe.beschreibung
-                FROM begriffe
-                WHERE begriffe.name = '$begriffSuche' AND begriffe.name LIKE '$i%'
-                ORDER BY begriffe.name ASC");
-
-
-                if (mysqli_num_rows($result) >= 1) {        
-                    echo "<div id='begriffe_letter-$i' class='big-letter'>" . $i . "</div>";
-                }
-
-                echo "<div class='glossary-bg'><ul>";
-
-                while ($j = mysqli_fetch_assoc($result)) {
-                    echo "<li><h3>" . $j["name"] . "</h3>";
-                    echo $j["beschreibung"] . "<br><br>";
-                }
-
-                echo "</li></ul></div>";
-            }
-        }
-
-
-        /* Option Suche zurücksetzen */
-        echo 
-        "<br>
-        <div class='glossary-res'>
-            <form method='post' action=" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">
-                <input id='submit-button' type='submit' value='Suche zurücksetzen'/>
-            </form>
-        </div>";
-        if ($_POST) {
-            $suche = false;                       // durch Klick auf den Button wird die Variable wieder aus false gesetzt, die Seite neu geladen und das Standard-Glossar angezeigt
-        }
-    }
     ?>
 
 
