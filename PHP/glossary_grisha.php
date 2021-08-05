@@ -2,25 +2,23 @@
 $site_name = "Grishaverse-Datenbank: Glossar";
 include ("header.inc.php"); 
 include ("navbar.inc.php");
+$configs = include("config.inc.php");
 ?>
     <div>
         <h2>Glossar</h2>
     </div>
 
+    <!-- Glossar-Navigationsleiste -->
     <div class="glossary-nav">
         <ul>
             <li><a href="glossary_begriffe.php">Begriffe</a></li>
+            <li><a href="glossary_orte.php">Orte</a></li>
             <li><a href="glossary_personen.php">Personen</a></li>
             <li><a href="glossary_grisha.php" class="active">Grisha</a></li>
-            <li><a href="glossary_orte.php">Orte</a></li>
         </ul>
     </div>
-
-    <?php 
-    $configs = include("config.inc.php");
-    ?>
-    
     <br>
+    
     <br>
     <div class='flex-container'>
             <div class='item3'>

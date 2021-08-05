@@ -1,6 +1,6 @@
 <?php
-/* Zugang zur Datenbank */
-require_once "config.inc.php";
+
+require_once "config.inc.php";                                                           /* Zugang zur Datenbank */
 
 $nationen = mysqli_query($conn,"SELECT nationen.ID, nationen.name FROM nationen");
 
