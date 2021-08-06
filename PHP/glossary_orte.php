@@ -26,7 +26,7 @@ $configs = include("config.inc.php");
         $(document).ready(function() {
 
             $('#orte-select').select2({
-                placeholder: "Nation wählen",                               // Platzhalter
+                placeholder: "Nation wählen",                              // Platzhalter
                 allowClear: true,
                 ajax: {
                     url: "filter_orte.php",
@@ -136,22 +136,7 @@ $configs = include("config.inc.php");
     
             echo "</li></ul></div>";
         }
-
-        echo        
-        "<div class='letters-bg'>
-            <strong>
-                <a class='link' href='#orte_letter-A'>A</a> <a class='link' href='#orte_letter-B'>B</a> <a class='link' href='#orte_letter-C'>C</a> 
-                <a class='link' href='#orte_letter-D'>D</a> <a class='link' href='#orte_letter-E'>E</a> <a class='link' href='#orte_letter-F'>F</a> 
-                <a class='link' href='#orte_letter-G'>G</a> <a class='link' href='#orte_letter-H'>H</a> <a class='link' href='#orte_letter-I'>I</a> 
-                <a class='link' href='#orte_letter-J'>J</a> <a class='link' href='#orte_letter-K'>K</a> <a class='link' href='#orte_letter-L'>L</a> 
-                <a class='link' href='#orte_letter-M'>M</a> <a class='link' href='#orte_letter-N'>N</a> <a class='link' href='#orte_letter-O'>O</a> 
-                <a class='link' href='#orte_letter-P'>P</a> <a class='link' href='#orte_letter-Q'>Q</a> <a class='link' href='#orte_letter-R'>R</a> 
-                <a class='link' href='#orte_letter-S'>S</a> <a class='link' href='#orte_letter-T'>T</a> <a class='link' href='#orte_letter-U'>U</a> 
-                <a class='link' href='#orte_letter-V'>V</a> <a class='link' href='#orte_letter-W'>W</a> <a class='link' href='#orte_letter-X'>X</a> 
-                <a class='link' href='#orte_letter-Y'>Y</a> <a class='link' href='#orte_letter-Z'>Z</a>
-            </strong>
-        </div>
-        <br>";
+        echo "<br>";
     ?>
 
 

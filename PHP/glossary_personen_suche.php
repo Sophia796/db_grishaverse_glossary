@@ -75,13 +75,13 @@ $configs = include("config.inc.php");
                     if ($j["beschreibung"]) {
                         echo "<li>". $j["beschreibung"] . "</li>";
                     }
-                    if ($j["gruppe"]) {
+                    if ($j["gruppe"] != "Keine Gruppe/unbekannt") {
                         echo "<li>Gruppe: " . $j["gruppe"] . "</li>";
                     }
-                    if ($j["grisha"]) {
+                    if ($j["grisha"] != "Kein Grisha") {
                         echo "<li>Grishatyp: " . $j["grisha"] . "</li>";
                     } 
-                    if ($j["nation"]) {
+                    if ($j["nation"] != "Keine Nation/unbekannt") {
                         echo "<li>Nation: " . $j["nation"] . "</li>";
                     } 
                     echo "</uo></li><br>";

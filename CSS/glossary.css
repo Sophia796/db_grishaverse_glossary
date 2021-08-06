@@ -90,7 +90,9 @@
 
 /* Alphabet mit Links zu den Einträgen */
 .letters-bg{
-    background-color: none;
+    position: sticky;                                 /* bleibt beim Scrollen an seiner Position kleben */
+    top: 0;
+    background-color: white;
     margin: 12px 0 0 0;
     padding: 0.5em 1.1em;
     text-align: center;
