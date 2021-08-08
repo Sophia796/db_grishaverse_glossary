@@ -38,7 +38,7 @@ $configs = include("config.inc.php");
 
         /* Überprüfen, ob es Ergebnisse zur Suche gibt (wenn nicht: entsprechenden Text ausgeben; wenn ja: Suchstring und Ergebnis ausgeben) */
         $res = mysqli_query($conn, "SELECT * FROM `personen` WHERE personen.vorname = '$personSuche' 
-        OR personen.nachname = '$personSuche' OR personen.weitere_namen LIKE '%$personSuche%'");
+        OR personen.nachname = '$personSuche' OR personen.namegesamt = '$personSuche' OR personen.weitere_namen LIKE '%$personSuche%'");
 
         if (mysqli_num_rows($res) < 1) {
             echo "<div class='glossary-res'><h3>Keine Ergebnisse für  " . $personSuche . " gefunden</h3></div><br>";
@@ -58,8 +58,10 @@ $configs = include("config.inc.php");
                 JOIN grisha on personen.grisha_typ = grisha.ID
                 JOIN nationen on personen.nation = nationen.ID
                 WHERE personen.vorname = '$personSuche' AND personen.vorname LIKE '$i%'  
-                OR personen.nachname = '$personSuche' AND personen.nachname LIKE '$i%'
-                OR personen.weitere_namen LIKE '%$personSuche%' AND personen.weitere_namen LIKE '$i%'");
+                OR personen.nachname = '$personSuche' AND personen.vorname LIKE '$i%'
+                OR personen.namegesamt = '$personSuche' AND personen.vorname LIKE '$i%'
+                OR personen.weitere_namen LIKE '%$personSuche%' AND personen.vorname LIKE '$i%'
+                ORDER BY personen.vorname ASC");
     
                 if (mysqli_num_rows($result) >= 1) {        
                     echo "<div id='personen_letter-$i' class='big-letter'>" . $i . "</div>";

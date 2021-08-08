@@ -188,7 +188,7 @@ $configs = include("config.inc.php");
             JOIN gruppen on personen.gruppe = gruppen.ID
             JOIN grisha on personen.grisha_typ = grisha.ID
             JOIN nationen on personen.nation = nationen.ID
-            WHERE personen.vorname LIKE '$i%' OR personen.nachname LIKE '$i%'
+            WHERE personen.vorname LIKE '$i%'                                                        /* nach Vorname oder Nachname ins Glossar einordnen oder beides (Personen doppelt)? --> hier: Entscheidung für Vorname */
             ORDER BY  personen.vorname, personen.nachname ASC");
 
             if (mysqli_num_rows($result) >= 1) {        
