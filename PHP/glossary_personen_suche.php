@@ -41,7 +41,8 @@ $configs = include("config.inc.php");
         OR personen.nachname = '$personSuche' OR personen.namegesamt = '$personSuche' OR personen.weitere_namen LIKE '%$personSuche%'");
 
         if (mysqli_num_rows($res) < 1) {
-            echo "<div class='glossary-res'><h3>Keine Ergebnisse für  " . $personSuche . " gefunden</h3></div><br>";
+            echo "<div class='glossary-res'><h3>Keine Ergebnisse für  " . $personSuche . " gefunden</h3>
+            <p>Glossar-Eintrag hinzufügen? <a class='link' href='contact.php'>Kontaktieren Sie uns!</a></p></div><br>";
         } else {
             echo "<div class='glossary-res'><h3>Suche nach " . $personSuche . "</h3></div><br>"; 
 

@@ -40,7 +40,8 @@ $configs = include("config.inc.php");
         $res = mysqli_query($conn, "SELECT * FROM schauplaetze WHERE schauplaetze.name = '$ortSuche'");
 
         if (mysqli_num_rows($res) < 1) {
-            echo "<div class='glossary-res'><h3>Keine Ergebnisse für  " . $ortSuche . " gefunden</h3></div><br>";
+            echo "<div class='glossary-res'><h3>Keine Ergebnisse für  " . $ortSuche . " gefunden</h3>
+            <p>Glossar-Eintrag hinzufügen? <a class='link' href='contact.php'>Kontaktieren Sie uns!</a></p></div><br>";
         } else {
             echo "<div class='glossary-res'><h3>Suche nach " . $ortSuche . "</h3></div><br>"; 
 

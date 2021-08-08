@@ -39,7 +39,8 @@ $configs = include("config.inc.php");
         $res = mysqli_query($conn, "SELECT begriffe.name, begriffe.beschreibung FROM begriffe WHERE begriffe.name = '$begriffSuche'");
 
         if (mysqli_num_rows($res) < 1) {
-            echo "<div class='glossary-res'><h3>Keine Ergebnisse für  " . $begriffSuche . " gefunden</h3></div><br>";
+            echo "<div class='glossary-res'><h3>Keine Ergebnisse für  " . $begriffSuche . " gefunden</h3>
+            <p>Glossar-Eintrag hinzufügen? <a class='link' href='contact.php'>Kontaktieren Sie uns!</a></p></div><br>";
         } else {
             echo "<div class='glossary-res'><h3>Suche nach " . $begriffSuche . "</h3></div><br>"; 
 
