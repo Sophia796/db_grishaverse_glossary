@@ -47,7 +47,8 @@ $configs = include("config.inc.php");
             });
         });
     </script>
-    
+
+    <div><h3>Orte</h3></div>    
 
     <!-- Filter und Suche zum Aufklappen (im Akkordion-Panel) -->
     <!-- Filter -->

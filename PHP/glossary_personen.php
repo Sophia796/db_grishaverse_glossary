@@ -44,6 +44,7 @@ $configs = include("config.inc.php");
         });
     </script>
 
+    <div><h3>Personen</h3></div>
 
     <!-- Filter und Suche zum Aufklappen (mit Akkordion) -->
     <!-- Filter -->
@@ -121,24 +122,7 @@ $configs = include("config.inc.php");
                     </p>
                 </form>
             </div>
-        </div>
-
-        <?php
-            /* Filter verarbeiten 
-
-              } elseif ($_POST["submit-nation"]) {
-                $suchKriterienStr = "";
-
-                if (is_null($_REQUEST["orte"])) {
-                    $nationSuche = "";
-                } else {
-                    $nationSuche = $_REQUEST["orte"];
-                }
-                $filterNation = true;
-            } 
-            */
-            ?>
-    
+        </div>   
 
     <!-- Suche -->
     <button class="accordion">Suche</button>

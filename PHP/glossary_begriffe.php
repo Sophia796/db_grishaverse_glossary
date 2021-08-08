@@ -18,6 +18,8 @@ $configs = include("config.inc.php");
         </ul>
     </div>
     <br>
+
+    <div><h3>Begriffe</h3></div>
     
     <!-- Suche (aufklappbar im Akkordion-Panel) -->
     <button class="accordion">Suche</button>
@@ -32,7 +34,6 @@ $configs = include("config.inc.php");
             </div>
         </div>
     <br>
-
 
     <!-- Glossar -->    
     <?php
