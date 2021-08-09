@@ -17,7 +17,7 @@ include ("navbar.inc.php");
     <div class="slideshow-container">
         <div class="mySlides fade">
             <div class="numbertext">1 / 4</div>
-            <a href="about.php"><img src="../images/images/slideshow/leigh_bardugo.jpg" style="width:100%"></a>
+            <a href="about.php"><img src="../images/images/slideshow/leigh_bardugo.jpg" style="width:100%"></a>            <!-- Bilder entsprechen dem Hauptmenü und haben Verlinkungen zu den Menü-Unterpunkten -->
             <div class="text">Das Grishaverse</div>
         </div>
         <div class="mySlides fade">
@@ -50,6 +50,7 @@ include ("navbar.inc.php");
         <span class="dot" onclick="currentSlide(4)"></span>
     </div>
 
+    <!-- Slideshow Javascript-->
     <script src="../Javascript/slideshow.js"></script>
 
 <?php include ("footer.inc.php"); ?>
