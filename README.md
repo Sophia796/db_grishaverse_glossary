@@ -3,9 +3,10 @@
  
  Die Datenbank wurde in phpMyAdmin mit XAMPP erstellt. 
  
- Zur Benutzung: 
+ Benutzung: 
  
 - /database/grishaverse_glossary.sql in phpMyAdmin importieren
 - das Repository auf einem lokalen XAMPP-Server speichern 
+- die Startseite /PHP/index.php über den localhost aufrufen
 
-(aus urheberrechtlichen Gründen wurden die verwendeten Bilder nicht auf Github publiziert, allerdings finden sich die Bildlinks in sources.php)
+(aus urheberrechtlichen Gründen wurden die verwendeten Bilder nicht auf Github publiziert, allerdings finden sich die Bildlinks in /PHP/sources.php)
