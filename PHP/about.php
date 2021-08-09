@@ -12,7 +12,7 @@ include ('navbar.inc.php');
 
     <br>
 
-    <article id='a1'>
+    <article id='a1'>                                                                                              <!-- IDs als Anker zu den Artikeln (klickbar im Dropdown-Menü) --> 
         <h2>Legenden der Grisha - Die Grisha-Trilogie</h2>
         <p>
         In den Büchern der Grisha-Trilogie geht es um Alina, eine einfache Kartografin in der Ersten Armee 
@@ -22,6 +22,7 @@ include ('navbar.inc.php');
         Dort nimmt "der Dunkle" sie unter seine Fittiche, der älteste und mächtigste der Grisha, 
         um ihre Macht in die richtigen Bahnen zu lenken.
         </p>
+        <!-- Inhalte in Flexboxen -->
         <div class='flex-container'>
             <div class='item3'>
                 <h3 style='margin-left: 0px'>Goldene Flammen</h3>

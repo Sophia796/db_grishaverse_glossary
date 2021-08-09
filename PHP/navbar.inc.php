@@ -16,7 +16,7 @@
             <li><a href="glossary_begriffe.php">Glossar</a></li>
             <li><a href="map.php">Karte</a></li>
             <li class="right"><a href="contact.php">Kontakt</a></li>
-            <li><a href="javascript:void(0);" class="icon" onclick="mobileMenu()"><i class="fa fa-bars"></i></a></li>
+            <li><a href="javascript:void(0);" class="icon" onclick="mobileMenu()"><i class="fa fa-bars"></i></a></li>                     <!-- Menü-Icon nur bei kleinen Bildschirmen (siehe CSS) -->
             <li><a href="javascript:void(0);" class="icon2" onclick="mobileMenu()"><i class="fa fa-angle-up"></i></a></li>
         </ul>
     </nav>

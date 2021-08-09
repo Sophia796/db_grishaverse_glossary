@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">                      <!-- Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">                        <!-- Responsive Design -->
     <title><?=$site_name?></title>
 
     <!-- Stylesheets -->
@@ -29,5 +29,5 @@
 
 <body>
     <div class="header">
-        <a href="index.php"><img src="../images/images/logo.jpg" style="width:10%"></a>
+        <a href="index.php"><img src="../images/images/logo.jpg" style="width:10%"></a>         <!-- Logo mit Link zur Startseite -->
     </div>

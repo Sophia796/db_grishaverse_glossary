@@ -15,7 +15,7 @@ nav ul li{
 }
 
 nav ul li.right {
-    float: right;                                   /* Login soll nach rechts ausgerichtet sein */
+    float: right;                                      /* Login soll nach rechts ausgerichtet sein */
 }  
   
 nav ul li a {
@@ -27,12 +27,12 @@ nav ul li a {
 }
     
 nav ul li a:hover {
-    background-color: #800000;                     /* Mouse Hover: Ändern der Farbe */
+    background-color: #800000;                      /* Mouse Hover: Ändern der Farbe */
 }
 
 /* Menü-Icon (nur bei kleinen Bildschirmen) */
 nav ul li a.icon {
-    display: none;                                   /* Icons per default verstecken */
+    display: none;                                    /* Icons per default verstecken */
     float: right;
 }
 

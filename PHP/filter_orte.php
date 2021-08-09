@@ -1,9 +1,10 @@
+
 <?php
+/* Zugang zur Datenbank */
+require_once "config.inc.php";                                                           
 
-require_once "config.inc.php";                                                           /* Zugang zur Datenbank */
-
+/* Filterung mit select2 und ajax */
 $nationen = mysqli_query($conn,"SELECT nationen.ID, nationen.name FROM nationen");
-
 $data = array();
 
 while($datensatz = mysqli_fetch_array($nationen)){
