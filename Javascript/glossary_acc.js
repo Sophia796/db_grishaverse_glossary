@@ -1,8 +1,12 @@
+
+/* Akkordion-Panel auf- und zuklappen */
+
 var acc = document.getElementsByClassName("accordion");
 var i;
 
 for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
+        
         /* Wechsel zwischen "active"-class hinzufügen und entfernen, um den Akkordion-Button zu markieren */
         this.classList.toggle("active");
 
