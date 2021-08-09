@@ -9,7 +9,7 @@ include ("navbar.inc.php");
     <?php
         // Funktion zum Testen von Userinput (zum Schutz vor Hackern)
         function test_input($data) {
-            $data = trim($data);                                  // unnötige Zeichen löschen (Leerzeichen, Tab ect.) 
+            $data = trim($data);                                  // unnötige Zeichen (Leerzeichen, Tab ect.) löschen
             $data = stripslashes($data);                          // Backslashes löschen
             $data = htmlspecialchars($data);                      // konvtertiert Sonderzeichen zu HTML Entities (z.B. < zu &lt;)
             return $data;
