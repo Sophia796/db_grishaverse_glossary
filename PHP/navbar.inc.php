@@ -23,20 +23,5 @@
     
     <br>
 
-    <script> 
-    
-    /* Die Klasse "responsive" wird mit JavaScript hinzugefügt oder entfernt, wenn der User auf die Icons klickt */
-    /* Responsive Design siehe CSS */
-
-        function mobileMenu() {
-            var x = document.getElementById("myTopnav");
-
-            if(x.classList.contains("responsive")) {
-                x.classList.remove("responsive");
-            } else {
-                x.classList.add("responsive");
-            }
-        }
-
-    </script>
+    <script src="../Javascript/mobile_menu.js"></script>
  
